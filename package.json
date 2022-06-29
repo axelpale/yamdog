@@ -1,0 +1,33 @@
+{
+  "name": "yadog",
+  "version": "0.0.1",
+  "description": "Yet another documentation generator for JavaScript",
+  "keywords": [
+    "documentation",
+    "doc",
+    "generator"
+  ],
+  "homepage": "https://github.com/axelpale/yadog",
+  "main": "index.js",
+  "author": {
+    "name": "Akseli Palen",
+    "email": "akseli.palen@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/axelpale/yadog.git"
+  },
+  "license": "MIT",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "standard": "^16.0.4"
+  },
+  "scripts": {
+    "audit": "npm audit --production",
+    "start": "node docs/examples/server.js",
+    "lint": "standard 'lib/**/*.js' && echo 'OK'",
+    "test": "npm run lint",
+    "release": "npm run test && npm publish"
+  }
+}
