@@ -9,7 +9,7 @@ Yet another API documentation generator for JavaScript. Minimal, indentation-bas
 
 Via [NPM](https://www.npmjs.com/package/yadog)
 
-> npm install yadog
+    $ npm install yadog
 
 
 ## Example
@@ -61,6 +61,14 @@ The code above is converted to Markdown:
     **Return:** integer
 
     Some other remarks...
+
+
+## Syntax
+
+- Double slash `//` comment blocks in the beginning of a file or a function will be included into docs.
+- Triple slash `///` to exclude comment from documentation.
+- Double dot `..` in the beginning of comment continues line.
+- If a parameter list contains single word, it will be `emphasised`.
 
 
 ## License
