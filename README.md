@@ -71,6 +71,33 @@ The code above is converted to Markdown:
 - If a parameter list contains single word, it will be `emphasised`.
 
 
+## Usage
+
+Create a file `docs/generate.js` with following contents:
+
+    const yadog = require('yadog')
+    const path = require('path')
+    yadog({
+      output: path.resolve(__dirname, 'API.md')
+      modules: [{
+        // Main title of the document
+        title: 'Yadog API Documentation',
+        // Introduction; initial paragraph
+        intro: 'Types and functions for affine 2D geometry.',
+        // Package name
+        name: 'yadog',
+        // Where to start
+        path: path.resolve(__dirname, '../lib')
+      }],
+    })
+
+Then run it with Node.
+
+    $ node docs/generate.js
+
+Finally, see the freshly baked docs at `docs/API.md`.
+
+
 ## License
 
 [MIT](LICENSE)

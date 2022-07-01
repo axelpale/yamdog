@@ -9,9 +9,6 @@
   ],
   "homepage": "https://github.com/axelpale/yadog",
   "main": "index.js",
-  "bin": {
-    "yadog": "bin/yadog.js"
-  },
   "author": {
     "name": "Akseli Palen",
     "email": "akseli.palen@gmail.com"
@@ -21,9 +18,6 @@
     "url": "git://github.com/axelpale/yadog.git"
   },
   "license": "MIT",
-  "dependencies": {
-    "commander": "^9.3.0"
-  },
   "devDependencies": {
     "standard": "^16.0.4"
   },
