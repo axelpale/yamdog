@@ -19,6 +19,8 @@ Via [NPM](https://www.npmjs.com/package/yadog)
 Here is a function documented in Yadog syntax:
 
     exports.myfun = (foo, options) => {
+      // mylib.myfun(foo, [options])
+      //
       // My function with some general documentation at
       // the beginning.
       //
@@ -46,7 +48,7 @@ Here is a function documented in Yadog syntax:
 
 The code above is converted to Markdown:
 
-    ## mylib.myfun
+    ## mylib.myfun(foo, \[options\])
 
     My function with some general documentation at the beginning.
 
@@ -67,10 +69,10 @@ The code above is converted to Markdown:
 
 ## Syntax
 
-- Double slash `//` comment blocks in the beginning of a file or a function will be included into docs.
-- Triple slash `///` to exclude comment from documentation.
-- Double dot `..` in the beginning of comment continues line.
-- If a parameter list contains single word, it will be `emphasised`.
+- A comment block is a set of adjacent lines of `//` comments.
+- If a comment block begins with `// name_of_my_module` then it will be included into docs.
+- Triple slash `///` to exclude comment in a comment block.
+- Double dot `..` in the beginning of comment continues previous line.
 
 
 ## Usage
@@ -81,12 +83,13 @@ Create a file `docs/generate.js` with following contents:
     const path = require('path')
     yadog({
       output: path.resolve(__dirname, 'API.md')
+      // Main title of the document
+      title: 'Yadog API Documentation',
+      // Introduction; the initial paragraph
+      intro: 'Types and functions for affine 2D geometry.',
+      // Code modules for which to generate docs
       modules: [{
-        // Main title of the document
-        title: 'Yadog API Documentation',
-        // Introduction; initial paragraph
-        intro: 'Types and functions for affine 2D geometry.',
-        // Package name
+        // Module name. Comment blocks that begin with this name are included.
         name: 'yadog',
         // Where to start
         path: path.resolve(__dirname, '../lib')
