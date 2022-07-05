@@ -1,5 +1,7 @@
 # yadog
 
+![Yadog logo](doc/yadog_logo.png)
+
 Yet another API documentation generator for JavaScript. Minimal, indentation-based syntax that keeps your comments readable. Reads CommonJS and generates Markdown.
 
 > Ya dog, I herd you like docs so we wrote docs for our docs generator so you can read docs while u generate yo docs.
