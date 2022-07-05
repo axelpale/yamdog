@@ -1,5 +1,1 @@
-const yadogLib = require('./lib')
-
-module.exports = function (config) {
-  return yadogLib.generate(config)
-}
+module.exports = require('./lib')
