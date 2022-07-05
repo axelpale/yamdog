@@ -27,5 +27,8 @@
     "lint": "standard 'lib/**/*.js' && echo 'OK'",
     "test": "npm run lint",
     "release": "npm run test && npm publish"
+  },
+  "dependencies": {
+    "async": "^3.2.4"
   }
 }
