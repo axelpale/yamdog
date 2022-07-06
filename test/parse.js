@@ -9,4 +9,4 @@ const tree = yadog.parse({
   path: modulePath
 })
 
-console.log(tree)
+console.dir(tree, { depth: null })
