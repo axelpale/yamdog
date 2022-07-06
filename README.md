@@ -72,7 +72,7 @@ The code above is converted to Markdown:
 - A comment block is a set of adjacent lines of `//` comments.
 - If a comment block begins with `// name_of_my_module` then it will be included into docs.
 - Triple slash `///` to exclude comment in a comment block.
-- Double dot `..` in the beginning of comment continues previous line.
+- Double or triple dot `..` in the beginning of comment continues previous list item instead of starting a new list item.
 
 
 ## Usage
