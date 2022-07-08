@@ -1,49 +1,69 @@
-## Yadog API Docs
+# Yadog API Docs
 
 Welcome to Yadog documentation.
 
 
-
-## yadog
-
-
-
 - [yadog.generate](#yadoggenerate)
+- [yadog.parse](#yadogparse)
+- [yadog.render](#yadogrender)
 
 <a name="yadoggenerate"></a>
-### yadog.generate(config)
+## yadog.generate(config)
 
-Generate the api documentation in a markdown file.
+Generate the API documentation to a Markdown document.
 
-<p style="display: inline">Parameters:</p>
-
-- `config`
+Parameters:
+- config
   - object with properties
-    - `target`
-      - string, an absolute path to the target file to generate.
-         For example '/home/xeli/projects/yadog/API.md'.
-    - `modules`
-      - array of CodeModule objects for which to generate documents.
+    - entry
+      - string, an absolute directory path. The location of the module to document.
+    - output
+      - string, an absolute path to the target file to generate. For example '/home/xeli/projects/yadog/API.md'.
+    - name
+      - string, the module name. The module name acts as the signature to look for comment blocks that are to be included to the documentation.
+    - title
+      - optional string, the document title and main heading.
+    - intro
+      - optional string, the introduction paragraph. Default ''.
     - keywords TODO
       - array of KeywordSubstitution objects.
-    - verbose TODO
-      - boolean. Enable console output. Default true.
-
-CodeModule object:
-  title
-    string. The heading.
-  intro
-    string. The first paragraph. For example 'Welcome to Yadog API docs'.
-  name
-    string. The module name as it is referred in code.
-    .. For example 'yadog'
-  path
-    string. A path to the directory of the module.
-    .. The generation is started from there.
+    - silent
+      - boolean. Disable console output. Default false.
 
 KeywordSubstitution object:
-  keyword
-    regexp match input
-  replacement
-    regexp match output
+- keyword
+  - regexp match input
+- replacement
+  - regexp match output
 
+<a name="yadogparse"></a>
+## yadog.parse(mod)
+
+Parse a tree from code.
+
+Parameters:
+- mod
+  - name
+    - string, module name
+  - path
+    - string, absolute file path to the module
+
+Return
+- an array of doc block objects
+
+<a name="yadogrender"></a>
+## yadog.render(blocks, options)
+
+Render API docs in Markdown.
+
+Parameters:
+- blocks
+  - parsed blocks
+- options
+  - title
+    - optional string, default 'API Reference'
+  - intro
+    - optional string, default ''
+
+Return
+- string, in Markdown syntax.
