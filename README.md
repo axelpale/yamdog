@@ -2,7 +2,7 @@
 
 ![Yadog logo](doc/yadog_logo.png)
 
-Yet another API documentation generator for JavaScript. Minimal, indentation-based syntax that keeps your comments readable. Reads CommonJS and generates Markdown.
+Yet another [API](https://en.wikipedia.org/wiki/API) documentation generator for JavaScript. Minimal, indentation-based syntax that keeps your comments readable. Yadog reads your ECMAScript projects structured in [CommonJS](https://www.commonjs.org/) module format. From the code, it scrapes earmarked comment blocks for plain text, [Markdown](https://en.wikipedia.org/wiki/Markdown), or [YAML](https://yaml.org/). Then it renders them together and outputs a Markdown document.
 
 > Ya dog, I herd you like docs so we wrote docs for our docs generator so you can read docs while u generate yo docs.
 
