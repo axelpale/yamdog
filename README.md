@@ -46,7 +46,7 @@ Here is a function documented in Yadog syntax:
       ...
     }
 
-The code above is converted to Markdown:
+The code above is converted to markdown:
 
     ## mylib.myfun(foo, \[options\])
 
