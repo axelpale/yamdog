@@ -23,7 +23,7 @@
   },
   "scripts": {
     "audit": "npm audit --production",
-    "start": "node docs/examples/server.js",
+    "build:docs": "node test/generate.js",
     "lint": "standard 'lib/**/*.js' && echo 'OK'",
     "test": "npm run lint",
     "release": "npm run test && npm publish"
