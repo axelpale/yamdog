@@ -1,11 +1,17 @@
 {
   "name": "yadog",
   "version": "0.0.1",
-  "description": "Yet another documentation generator",
+  "description": "Yet another documentation generator. Scrapes comments in code for Markdown and YAML syntax.",
   "keywords": [
+    "api",
+    "comments",
     "documentation",
     "doc",
-    "generator"
+    "docs",
+    "generator",
+    "markdown",
+    "scraper",
+    "yaml"
   ],
   "homepage": "https://github.com/axelpale/yadog",
   "main": "index.js",
