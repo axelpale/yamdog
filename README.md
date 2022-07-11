@@ -88,7 +88,7 @@ In your project, create a file `docs/generate.js` with contents similar to:
       // Where to generate
       output: path.resolve(__dirname, 'API.md'),
       // Module name; include blocks that begin with this name.
-      name: 'yadog'
+      name: 'yadog',
       // Main title of the document
       title: 'Yadog API Documentation',
       // Introduction; the initial paragraph
