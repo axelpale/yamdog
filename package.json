@@ -1,7 +1,7 @@
 {
   "name": "yadog",
   "version": "0.0.1",
-  "description": "Yet another documentation generator for JavaScript",
+  "description": "Yet another documentation generator",
   "keywords": [
     "documentation",
     "doc",
