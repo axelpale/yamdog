@@ -9,9 +9,10 @@ Yet another API documentation generator for JavaScript. Minimal, indentation-bas
 
 ## Install
 
-Via [npm](https://www.npmjs.com/package/yadog)
+Via [npm](https://www.npmjs.com/package/yadog) or [yarn](https://yarnpkg.com/en/package/yadog):
 
-    $ npm install yadog
+    $ npm install --save-dev yadog
+    $ yarn add --dev yadog
 
 
 ## Example
