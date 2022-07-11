@@ -66,6 +66,26 @@ The code above is converted to markdown:
 
     Some included remarks...
 
+The markdown above renders to:
+
+> ## mylib.myfun(foo, \[options\])
+>
+> My function with some general documentation at the beginning.
+>
+> **Parameters:**
+> - *foo*
+>   - string that does something.
+> - *options*
+>   - optional object with properties:
+>     - *bar*
+>       - optional string. Default 'barval'.
+>     - *baz*
+>       - optional number that does a thing and then some more. Default 'bazval'.
+>
+> **Return:** integer
+>
+> Some included remarks...
+
 ## Syntax
 
 - A comment block is a set of adjacent lines of `//` comments.
