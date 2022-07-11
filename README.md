@@ -38,7 +38,7 @@ Here is a function documented in Yadog syntax:
       // Return:
       //   integer
       //
-      // Some other remarks...
+      // Some included remarks...
       /// Some excluded remarks.
       //
 
@@ -64,8 +64,7 @@ The code above is converted to Markdown:
 
     **Return:** integer
 
-    Some other remarks...
-
+    Some included remarks...
 
 ## Syntax
 
