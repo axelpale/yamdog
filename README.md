@@ -1,6 +1,6 @@
 # yadog
 
-![Yadog logo](doc/yadog_logo.png)
+![Yadog logo](doc/yadog_bite_logo.png)
 
 Yet another [API](https://en.wikipedia.org/wiki/API) documentation generator for JavaScript. Minimal, indentation-based syntax that keeps your comments readable. Yadog reads your ECMAScript projects structured in [CommonJS](https://www.commonjs.org/) module format. From the code, it scrapes earmarked comment blocks for plain text, [Markdown](https://en.wikipedia.org/wiki/Markdown), or [YAML](https://yaml.org/). Then it renders them together and outputs a Markdown document.
 
