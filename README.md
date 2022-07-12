@@ -89,11 +89,15 @@ The markdown above renders to:
 
 ## Syntax
 
-- A comment block is a set of adjacent lines of `//` comments.
-- If a comment block begins with a line that contains `// name_of_my_module` then it will be included into the docs.
-- Triple slash `///` to exclude comment in a comment block.
-- Indent comments to create a list, for example a list of parameters.
-- Double or triple dot `..` in the beginning of comment in a list continues previous list item instead of starting a new list item.
+- A *comment block* is a set of adjacent lines of `//` comments.
+- To *earmark* a comment block to be included to your docs, begin the block with a line that contains `// name.of.my.module`.
+- To exclude a line in an earmarked comment block, use triple slash `///`.
+- Indent with space `' '` or dash `'-'` to create lists.
+- To write multi-line list items, prefix each new line with a double or triple dot `..`. Otherwise the new line becomes a new list item.
+
+![Three bones](doc/yadog_three_bones.png)
+
+*Use triple slash `///` to exclude a line in an earmarked comment block.*
 
 
 ## Usage
