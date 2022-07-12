@@ -16,7 +16,7 @@ Parameters:
 - config
   - object with properties
     - entry
-      - string, an absolute directory path. The location of the module to document.
+      - string, an absolute directory or file path. The location of the module to document.
     - output
       - string, an absolute path to the target file to generate. For example '/home/xeli/projects/yadog/API.md'.
     - name
@@ -46,7 +46,7 @@ Parameters:
   - name
     - string, module name
   - path
-    - string, absolute file path to the module
+    - string, absolute directory or file path to the module
 
 Return
 - an array of doc block objects
