@@ -8,5 +8,11 @@ yadog.generate({
   output: path.resolve(__dirname, '..', 'API.md'),
   name: 'yadog',
   title: 'Yadog API Docs',
-  intro: 'Welcome to Yadog documentation.'
+  intro: 'Welcome to Yadog documentation.',
+  decorators: [
+    yadog.decorators.boldKeywords([
+      /^parameters?:?/i,
+      /^returns?:?/i
+    ])
+  ]
 })

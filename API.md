@@ -12,7 +12,7 @@ Welcome to Yadog documentation.
 
 Generate the API documentation to a Markdown document.
 
-Parameters:
+*Parameters:*
 - config
   - object with properties
     - entry
@@ -41,14 +41,14 @@ KeywordSubstitution object:
 
 Parse a tree from code.
 
-Parameters:
+*Parameters:*
 - mod
   - name
     - string, module name
   - path
     - string, absolute directory or file path to the module
 
-Return
+*Return*
 - an array of doc block objects
 
 <a name="yadogrender"></a>
@@ -56,7 +56,7 @@ Return
 
 Render API docs in Markdown.
 
-Parameters:
+*Parameters:*
 - blocks
   - parsed blocks
 - options
@@ -65,5 +65,5 @@ Parameters:
   - intro
     - optional string, default ''
 
-Return
+*Return*
 - string, in Markdown syntax.
