@@ -2,6 +2,9 @@
 
 ![Yadog logo](doc/yadog_bite_logo.png)
 
+[![npm version](https://img.shields.io/npm/v/yadog?color=green)](https://www.npmjs.com/package/yadog)
+[![license](https://img.shields.io/npm/l/yadog)](#license)
+
 Yet another [API](https://en.wikipedia.org/wiki/API) documentation generator for JavaScript. Minimal, indentation-based syntax that keeps your comments readable. Yadog reads your ECMAScript projects structured in [CommonJS](https://www.commonjs.org/) module format. From the code, it scrapes earmarked comment blocks for plain text, [Markdown](https://en.wikipedia.org/wiki/Markdown), or [YAML](https://yaml.org/). Then it renders them together and outputs a Markdown document.
 
 > Ya dog, I herd you like docs so we wrote docs for our docs generator so you can read docs while u generate yo docs.
