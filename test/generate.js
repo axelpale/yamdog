@@ -11,7 +11,7 @@ yadog.generate({
   intro: 'Welcome to Yadog documentation.',
   decorators: [
     yadog.decorators.boldKeywords([
-      /^parameters?:?/i,
+      /^param(?:eter)?s?:?/i,
       /^returns?:?/i
     ])
   ]
