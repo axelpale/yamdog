@@ -6,7 +6,7 @@ const path = require('path')
 yadog.generate({
   entry: path.resolve(__dirname, '../index.js'),
   output: path.resolve(__dirname, '..', 'API.md'),
-  name: 'yadog',
+  earmark: 'yadog',
   title: 'Yadog API Docs',
   intro: 'Welcome to Yadog documentation.',
   decorators: [

@@ -5,7 +5,7 @@ const path = require('path')
 
 const modulePath = path.resolve(__dirname, '..')
 const tree = yadog.parse({
-  name: 'yadog',
+  earmark: 'yadog',
   path: modulePath
 })
 
