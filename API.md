@@ -20,11 +20,11 @@ Generate the API documentation to a Markdown document.
 - config
   - object with properties
     - entry
-      - string, an absolute directory or file path. The location of the module to document.
+      - string, an absolute directory or file path. The location of the module to be documented. All relative require and import statements like `var lib = require('./lib')` are followed in the order they occur in the code. Absolute or named imports like `var _ = require('lodash')` and `import baz from 'foo/bar'` are skipped.
     - output
       - string, an absolute path to the target file to generate. For example '/home/xeli/projects/yadog/API.md'.
     - name
-      - string, the module name. The module name acts as the signature to look for comment blocks that are to be included to the documentation.
+      - string, the module name. The module name acts as an earmark signature to look for in comment blocks to include them to the documentation. The name does not need to match the real package name but it must match the signature used in the comments.
     - title
       - optional string, the document title and main heading.
     - intro
