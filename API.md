@@ -16,7 +16,7 @@ Welcome to Yadog documentation.
 
 Generate the API documentation to a Markdown document.
 
-*Parameters:*
+**Parameters:**
 - config
   - object with properties
     - entry
@@ -39,14 +39,14 @@ Generate the API documentation to a Markdown document.
 
 Parse a tree from code.
 
-*Parameters:*
+**Parameters:**
 - mod
   - name
     - string, module name
   - path
     - string, absolute directory or file path to the module
 
-*Return*
+**Return**
 - an array of doc block objects
 
 <a name="yadogrender"></a>
@@ -54,7 +54,7 @@ Parse a tree from code.
 
 Render API docs in Markdown.
 
-*Parameters:*
+**Parameters:**
 - blocks
   - parsed blocks
 - options
@@ -63,7 +63,7 @@ Render API docs in Markdown.
   - intro
     - optional string, default ''.
 
-*Return*
+**Return**
 - string, in Markdown syntax.
 
 <a name="yadogdecorate"></a>
@@ -73,13 +73,13 @@ Decorate parsed blocks. The list of decorator functions are applied to
 each block in the given order. See yadog.decorators for available
 built-in decorator functions.
 
-*Parameters:*
+**Parameters:**
 - blocks
   - array of parsed blocks
 - decorators
   - array of decorator functions
 
-*Return:*
+**Return:**
 - array of new decorated block objects
 
 <a name="yadogdecorators"></a>
@@ -93,11 +93,11 @@ With decorators you can style the markdown in various ways.
 
 Bolds the given keywords using Markdown &ast;bold&ast; syntax.
 
-*Parameters*
+**Parameters**
 - keywords
   - array of strings or regexp objects
 
-*Return*
+**Return**
 - a function, a decorator function.
 
 <a name="yadogdecoratorsboldListTitles"></a>
@@ -105,5 +105,5 @@ Bolds the given keywords using Markdown &ast;bold&ast; syntax.
 
 Bolds the first line of all lists using Markdown &ast;bold&ast; syntax.
 
-*Return*
+**Return**
 - a function, a decorator function.
