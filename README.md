@@ -5,7 +5,7 @@
 [![npm version](https://img.shields.io/npm/v/yadog?color=green)](https://www.npmjs.com/package/yadog)
 [![license](https://img.shields.io/npm/l/yadog)](#license)
 
-Yet another [API](https://en.wikipedia.org/wiki/API) documentation generator for JavaScript. Minimal, indentation-based syntax that keeps your comments readable. Yadog reads your ECMAScript projects structured in [CommonJS](https://www.commonjs.org/) module format. From the code, it scrapes earmarked comment blocks for plain text, [Markdown](https://en.wikipedia.org/wiki/Markdown), or [YAML](https://yaml.org/). Then it renders them together and outputs a Markdown document.
+Yet another [API](https://en.wikipedia.org/wiki/API) documentation generator for JavaScript. Minimal, indentation-based syntax that keeps your comments readable. Yadog reads your ECMAScript projects structured in [CommonJS](https://www.commonjs.org/) or [ESM](https://nodejs.org/api/esm.html) module format. It follows relative require and import statements to crawl through your code. From the code, it scrapes earmarked comment blocks for plain text, [Markdown](https://en.wikipedia.org/wiki/Markdown), and [YAML](https://yaml.org/). Then it renders the blocks together and outputs a Markdown document.
 
 > Ya dog, I herd you like docs so we wrote docs for our docs generator so you can read docs while u generate yo docs.
 
@@ -42,7 +42,7 @@ Here is a function documented in Yadog syntax:
       // Return:
       //   integer
       //
-      // Some included remarks...
+      // Some included remarks.
       /// Some excluded remarks.
       //
 
@@ -68,7 +68,7 @@ The code above is converted to markdown:
 
     **Return:** integer
 
-    Some included remarks...
+    Some included remarks.
 
 The markdown above renders to:
 
@@ -88,12 +88,12 @@ The markdown above renders to:
 >
 > **Return:** integer
 >
-> Some included remarks...
+> Some included remarks.
 
 ## Syntax
 
 - A *comment block* is a set of adjacent lines of `//` comments.
-- To *earmark* a comment block to be included to your docs, begin the block with a line that contains `// name.of.my.module`.
+- To *earmark* a comment block to be included to your docs, begin the block with a line that contains `// name.of.my.module`. The earmark line also presents how to access and call the documented feature.
 - To exclude a line in an earmarked comment block, use triple slash `///`.
 - Indent with space `' '` or dash `'-'` to create lists.
 - To write multi-line list items, prefix each new line with a double or triple dot `..`. Otherwise the new line becomes a new list item.
@@ -115,11 +115,11 @@ In your project, create a file `docs/generate.js` with contents similar to:
       // Where to generate
       output: path.resolve(__dirname, 'API.md'),
       // Module name; include blocks that begin with this name.
-      name: 'yadog',
+      name: 'mylib',
       // Main title of the document
-      title: 'Yadog API Documentation',
+      title: 'Mylib API Documentation',
       // Introduction; the initial paragraph
-      intro: 'Types and functions for affine 2D geometry.',
+      intro: 'Welcome to mylib API documentation.',
     })
 
 Then you can run it with Node and find your freshly baked docs at `docs/API.md`.
