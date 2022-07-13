@@ -23,8 +23,8 @@ Generate the API documentation to a Markdown document.
       - string, an absolute directory or file path. The location of the module to be documented. All relative require and import statements like `var lib = require('./lib')` are followed in the order they occur in the code. Absolute or named imports like `var _ = require('lodash')` and `import baz from 'foo/bar'` are skipped.
     - output
       - string, an absolute path to the target file to generate. For example '/home/xeli/projects/yadog/API.md'.
-    - name
-      - string, the module name. The module name acts as an earmark signature to look for in comment blocks to include them to the documentation. The name does not need to match the real package name but it must match the signature used in the comments.
+    - earmark
+      - string, the earmark signature to look for in the comment blocks to include to the documentation. The earmark is usually the module name like `mylib`. It does not need to match the real package name but it must match the signature used in the comments.
     - title
       - optional string, the document title and main heading.
     - intro
@@ -37,17 +37,25 @@ Generate the API documentation to a Markdown document.
 <a name="yadogparse"></a>
 ## yadog.parse(mod)
 
-Parse a tree from code.
+Parse doc block objects from code.
 
 **Parameters:**
 - mod
-  - name
-    - string, module name
+  - earmark
+    - string, the earmark signature, for example the module name. Comment blocks that begin with this signature will be included.
   - path
     - string, absolute directory or file path to the module
 
 **Return**
-- an array of doc block objects
+- an array of doc block objects.
+
+A parsed doc block object has properties:
+- name
+  - string, the unit name derived from the call signature
+- signature
+  - string, the call signature
+- paragraphs
+  - array of paragraph objects { type, body }
 
 <a name="yadogrender"></a>
 ## yadog.render(blocks, options)
