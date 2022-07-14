@@ -80,7 +80,7 @@ Render API docs in Markdown.
 ## yadog.decorate(blocks, decorators)
 
 Decorate parsed blocks. The list of decorator functions are applied to
-each block in the given order. See yadog.decorators for available
+each block in the given order. See [yadog.decorators](#yadogdecorators) for available
 built-in decorator functions.
 
 **Parameters:**

@@ -19,6 +19,7 @@ yadog.generate({
         pattern: /^returns?:?/i,
         replacement: '**Returns:**'
       }
-    ])
+    ]),
+    yadog.decorators.linkNames()
   ]
 })
