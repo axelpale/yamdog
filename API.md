@@ -31,13 +31,13 @@ in this order.
     - earmark
       - string, the earmark signature to look for in the comment blocks to include to the documentation. The earmark is usually the module name like `mylib`. It does not need to match the real package name but it must match the signature used in the comments.
     - title
-      - optional string, the document title and main heading.
+      - optional string, the document title and main heading. Default is `'API Documentation'`.
     - intro
-      - optional string, the introduction paragraph. Default ''.
+      - optional string, the introduction paragraph. Default is `''`.
     - decorators
-      - array of decorator functions. Default [].
+      - array of decorator functions. Default is `[]`.
     - silent
-      - boolean. Disable console output. Default false.
+      - boolean. Disable console output. Default is `false`.
 
 <a name="yamdogparse"></a>
 ## yamdog.parse(mod)
