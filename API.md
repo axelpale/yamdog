@@ -1,3 +1,4 @@
+<a name="top"></a>
 # Yadog API Docs
 
 Welcome to Yadog v0.2.0 documentation.
@@ -146,3 +147,7 @@ Replaces the given patterns using String.prototype.replace().
 
 **Returns:**
 - a function, a decorator function.
+
+<p style="text-align: right">
+<a href="#top">&uarr; Back To Top</a>
+</p>
