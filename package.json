@@ -1,6 +1,6 @@
 {
   "name": "yadog",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Yet another documentation generator. Scrapes comments in code for Markdown and YAML syntax.",
   "keywords": [
     "api",

@@ -1,7 +1,7 @@
 <a name="top"></a>
 # Yadog API Docs
 
-Welcome to Yadog v0.2.0 API documentation.
+Welcome to Yadog v0.3.0 API documentation.
 
 
 - [yadog.generate](#yadoggenerate)
