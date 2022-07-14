@@ -106,7 +106,7 @@ to a new array of decorated doc blocks.
 <a name="yadogdecoratorsboldKeywords"></a>
 ## yadog.decorators.boldKeywords
 
-Bolds the given keywords using Markdown &ast;bold&ast; syntax.
+Bolds the given keywords with Markdown &ast;&ast;bold&ast;&ast; syntax.
 
 **Parameters:**
 - keywords
@@ -118,7 +118,8 @@ Bolds the given keywords using Markdown &ast;bold&ast; syntax.
 <a name="yadogdecoratorsboldListTitles"></a>
 ## yadog.decorators.boldListTitles
 
-Bolds the first line of all lists using Markdown &ast;bold&ast; syntax.
+Bolds the first line of all lists with
+Markdown &ast;&ast;bold&ast;&ast; syntax.
 
 **Returns:**
 - a function, a decorator function.
