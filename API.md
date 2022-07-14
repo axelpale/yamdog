@@ -1,6 +1,6 @@
 # Yadog API Docs
 
-Welcome to Yadog documentation.
+Welcome to Yadog v0.2.0 documentation.
 
 
 - [yadog.generate](#yadoggenerate)
@@ -17,7 +17,8 @@ Welcome to Yadog documentation.
 ## yadog.generate(config)
 
 Generate the API documentation and save as Markdown document.
-Internally uses [yadog.parse](#yadogparse), [yadog.decorate](#yadogdecorate), and [yadog.render](#yadogrender).
+Internally uses [yadog.parse](#yadogparse), [yadog.decorate](#yadogdecorate), and [yadog.render](#yadogrender),
+in this order.
 
 **Parameters:**
 - config
