@@ -33,9 +33,9 @@ Here is a function documented in Yamdog syntax:
       //     string that does something.
       //   options
       //     optional object with properties:
-      //       bar
+      //     - bar
       //         optional string. Default 'barval'.
-      //       baz
+      //     - baz
       //         optional number that does a thing and
       //         ..then some more. Default 'bazval'.
       //
