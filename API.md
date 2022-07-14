@@ -10,6 +10,7 @@ Welcome to Yadog documentation.
 - [yadog.decorators](#yadogdecorators)
 - [yadog.decorators.boldKeywords](#yadogdecoratorsboldKeywords)
 - [yadog.decorators.boldListTitles](#yadogdecoratorsboldListTitles)
+- [yadog.decorators.linkNames](#yadogdecoratorslinkNames)
 - [yadog.decorators.replace](#yadogdecoratorsreplace)
 
 <a name="yadoggenerate"></a>
@@ -95,7 +96,10 @@ built-in decorator functions.
 ## yadog.decorators
 
 The default docs output is a bit dull.
-With decorators you can style the markdown in various ways.
+With decorators you can style the document in various ways.
+You can also create your own custom decorators.
+Each decorator is a function that maps an array of parsed doc blocks
+to a new array of decorated doc blocks.
 
 <a name="yadogdecoratorsboldKeywords"></a>
 ## yadog.decorators.boldKeywords
@@ -113,6 +117,17 @@ Bolds the given keywords using Markdown &ast;bold&ast; syntax.
 ## yadog.decorators.boldListTitles
 
 Bolds the first line of all lists using Markdown &ast;bold&ast; syntax.
+
+**Returns:**
+- a function, a decorator function.
+
+<a name="yadogdecoratorslinkNames"></a>
+## yadog.decorators.linkNames
+
+Easy way to create links from name occurrences in text to their
+headings within the document.
+Searches block contents for block names and replaces each with
+a link to the position of the block in the documentation.
 
 **Returns:**
 - a function, a decorator function.
