@@ -1,7 +1,7 @@
 <a name="top"></a>
 # Yadog API Docs
 
-Welcome to Yadog v0.2.0 documentation.
+Welcome to Yadog v0.2.0 API documentation.
 
 
 - [yadog.generate](#yadoggenerate)
@@ -128,10 +128,9 @@ Markdown &ast;&ast;bold&ast;&ast; syntax.
 <a name="yadogdecoratorslinkNames"></a>
 ## yadog.decorators.linkNames
 
-Easy way to create links from name occurrences in text to their
-headings within the document.
-Searches block contents for block names and replaces each with
-a link to the position of the block in the documentation.
+Easy way to create links for block name occurrences in text.
+Searches block contents for block names and replaces each match with
+a link to the block heading anchor.
 
 **Returns:**
 - a function, a decorator function.
