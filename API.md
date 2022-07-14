@@ -16,7 +16,8 @@ Welcome to Yadog documentation.
 <a name="yadoggenerate"></a>
 ## yadog.generate(config)
 
-Generate the API documentation to a Markdown document.
+Generate the API documentation and save as Markdown document.
+Internally uses [yadog.parse](#yadogparse), [yadog.decorate](#yadogdecorate), and [yadog.render](#yadogrender).
 
 **Parameters:**
 - config
