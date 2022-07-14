@@ -10,6 +10,7 @@ Welcome to Yadog documentation.
 - [yadog.decorators](#yadogdecorators)
 - [yadog.decorators.boldKeywords](#yadogdecoratorsboldKeywords)
 - [yadog.decorators.boldListTitles](#yadogdecoratorsboldListTitles)
+- [yadog.decorators.replace](#yadogdecoratorsreplace)
 
 <a name="yadoggenerate"></a>
 ## yadog.generate(config)
@@ -46,7 +47,7 @@ Parse doc block objects from code.
   - path
     - string, absolute directory or file path to the module
 
-**Return**
+**Returns:**
 - an array of doc block objects.
 
 A parsed doc block object has properties:
@@ -71,7 +72,7 @@ Render API docs in Markdown.
   - intro
     - optional string, default ''.
 
-**Return**
+**Returns:**
 - string, in Markdown syntax.
 
 <a name="yadogdecorate"></a>
@@ -87,7 +88,7 @@ built-in decorator functions.
 - decorators
   - array of decorator functions
 
-**Return:**
+**Returns:**
 - array of new decorated block objects
 
 <a name="yadogdecorators"></a>
@@ -101,11 +102,11 @@ With decorators you can style the markdown in various ways.
 
 Bolds the given keywords using Markdown &ast;bold&ast; syntax.
 
-**Parameters**
+**Parameters:**
 - keywords
   - array of strings or regexp objects
 
-**Return**
+**Returns:**
 - a function, a decorator function.
 
 <a name="yadogdecoratorsboldListTitles"></a>
@@ -113,5 +114,17 @@ Bolds the given keywords using Markdown &ast;bold&ast; syntax.
 
 Bolds the first line of all lists using Markdown &ast;bold&ast; syntax.
 
-**Return**
+**Returns:**
+- a function, a decorator function.
+
+<a name="yadogdecoratorsreplace"></a>
+## yadog.decorators.replace
+
+Replaces the given patterns using String.prototype.replace().
+
+**Parameters:**
+- rules
+  - array of replacement rule objects { pattern, replacement }
+
+**Returns:**
 - a function, a decorator function.

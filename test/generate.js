@@ -10,9 +10,15 @@ yadog.generate({
   title: 'Yadog API Docs',
   intro: 'Welcome to Yadog documentation.',
   decorators: [
-    yadog.decorators.boldKeywords([
-      /^param(?:eter)?s?:?/i,
-      /^returns?:?/i
+    yadog.decorators.replace([
+      {
+        pattern: /^param(?:eter)?s?:?/i,
+        replacement: '**Parameters:**'
+      },
+      {
+        pattern: /^returns?:?/i,
+        replacement: '**Returns:**'
+      }
     ])
   ]
 })
