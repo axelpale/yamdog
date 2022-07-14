@@ -1,24 +1,24 @@
 <a name="top"></a>
-# Yadog API Docs
+# Yamdog API Docs
 
-Welcome to Yadog v0.3.0 API documentation.
+Welcome to Yamdog v1.0.0 API documentation.
 
 
-- [yadog.generate](#yadoggenerate)
-- [yadog.parse](#yadogparse)
-- [yadog.render](#yadogrender)
-- [yadog.decorate](#yadogdecorate)
-- [yadog.decorators](#yadogdecorators)
-- [yadog.decorators.boldKeywords](#yadogdecoratorsboldKeywords)
-- [yadog.decorators.boldListTitles](#yadogdecoratorsboldListTitles)
-- [yadog.decorators.linkNames](#yadogdecoratorslinkNames)
-- [yadog.decorators.replace](#yadogdecoratorsreplace)
+- [yamdog.generate](#yamdoggenerate)
+- [yamdog.parse](#yamdogparse)
+- [yamdog.render](#yamdogrender)
+- [yamdog.decorate](#yamdogdecorate)
+- [yamdog.decorators](#yamdogdecorators)
+- [yamdog.decorators.boldKeywords](#yamdogdecoratorsboldKeywords)
+- [yamdog.decorators.boldListTitles](#yamdogdecoratorsboldListTitles)
+- [yamdog.decorators.linkNames](#yamdogdecoratorslinkNames)
+- [yamdog.decorators.replace](#yamdogdecoratorsreplace)
 
-<a name="yadoggenerate"></a>
-## yadog.generate(config)
+<a name="yamdoggenerate"></a>
+## yamdog.generate(config)
 
 Generate the API documentation and save as Markdown document.
-Internally uses [yadog.parse](#yadogparse), [yadog.decorate](#yadogdecorate), and [yadog.render](#yadogrender),
+Internally uses [yamdog.parse](#yamdogparse), [yamdog.decorate](#yamdogdecorate), and [yamdog.render](#yamdogrender),
 in this order.
 
 **Parameters:**
@@ -27,7 +27,7 @@ in this order.
     - entry
       - string, an absolute directory or file path. The location of the module to be documented. All relative require and import statements like `var lib = require('./lib')` are followed in the order they occur in the code. Absolute or named imports like `var _ = require('lodash')` and `import baz from 'foo/bar'` are skipped.
     - output
-      - string, an absolute path to the target file to generate. For example '/home/xeli/projects/yadog/API.md'.
+      - string, an absolute path to the target file to generate. For example '/home/xeli/projects/yamdog/API.md'.
     - earmark
       - string, the earmark signature to look for in the comment blocks to include to the documentation. The earmark is usually the module name like `mylib`. It does not need to match the real package name but it must match the signature used in the comments.
     - title
@@ -39,8 +39,8 @@ in this order.
     - silent
       - boolean. Disable console output. Default false.
 
-<a name="yadogparse"></a>
-## yadog.parse(mod)
+<a name="yamdogparse"></a>
+## yamdog.parse(mod)
 
 Parse doc block objects from code.
 
@@ -62,8 +62,8 @@ A parsed doc block object has properties:
 - paragraphs
   - array of paragraph objects { type, body }
 
-<a name="yadogrender"></a>
-## yadog.render(blocks, options)
+<a name="yamdogrender"></a>
+## yamdog.render(blocks, options)
 
 Render API docs in Markdown.
 
@@ -79,11 +79,11 @@ Render API docs in Markdown.
 **Returns:**
 - string, in Markdown syntax.
 
-<a name="yadogdecorate"></a>
-## yadog.decorate(blocks, decorators)
+<a name="yamdogdecorate"></a>
+## yamdog.decorate(blocks, decorators)
 
 Decorate parsed blocks. The list of decorator functions are applied to
-each block in the given order. See [yadog.decorators](#yadogdecorators) for available
+each block in the given order. See [yamdog.decorators](#yamdogdecorators) for available
 built-in decorator functions.
 
 **Parameters:**
@@ -95,8 +95,8 @@ built-in decorator functions.
 **Returns:**
 - array of new decorated block objects
 
-<a name="yadogdecorators"></a>
-## yadog.decorators
+<a name="yamdogdecorators"></a>
+## yamdog.decorators
 
 The default docs output is a bit dull.
 With decorators you can style the document in various ways.
@@ -104,8 +104,8 @@ You can also create your own custom decorators.
 Each decorator is a function that maps an array of parsed doc blocks
 to a new array of decorated doc blocks.
 
-<a name="yadogdecoratorsboldKeywords"></a>
-## yadog.decorators.boldKeywords
+<a name="yamdogdecoratorsboldKeywords"></a>
+## yamdog.decorators.boldKeywords
 
 Bolds the given keywords with Markdown &ast;&ast;bold&ast;&ast; syntax.
 
@@ -116,8 +116,8 @@ Bolds the given keywords with Markdown &ast;&ast;bold&ast;&ast; syntax.
 **Returns:**
 - a function, a decorator function.
 
-<a name="yadogdecoratorsboldListTitles"></a>
-## yadog.decorators.boldListTitles
+<a name="yamdogdecoratorsboldListTitles"></a>
+## yamdog.decorators.boldListTitles
 
 Bolds the first line of all lists with
 Markdown &ast;&ast;bold&ast;&ast; syntax.
@@ -125,8 +125,8 @@ Markdown &ast;&ast;bold&ast;&ast; syntax.
 **Returns:**
 - a function, a decorator function.
 
-<a name="yadogdecoratorslinkNames"></a>
-## yadog.decorators.linkNames
+<a name="yamdogdecoratorslinkNames"></a>
+## yamdog.decorators.linkNames
 
 Easy way to create links for block name occurrences in text.
 Searches block contents for block names and replaces each match with
@@ -135,8 +135,8 @@ a link to the block heading anchor.
 **Returns:**
 - a function, a decorator function.
 
-<a name="yadogdecoratorsreplace"></a>
-## yadog.decorators.replace
+<a name="yamdogdecoratorsreplace"></a>
+## yamdog.decorators.replace
 
 Replaces the given patterns using String.prototype.replace().
 
