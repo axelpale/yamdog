@@ -1,17 +1,17 @@
-// Test by generating Yadog's own documentation.
+// Test by generating Yamdog's own documentation.
 
-const yadog = require('../index')
+const yamdog = require('../index')
 const path = require('path')
 const version = require('../package.json').version
 
-yadog.generate({
+yamdog.generate({
   entry: path.resolve(__dirname, '../index.js'),
   output: path.resolve(__dirname, '..', 'API.md'),
-  earmark: 'yadog',
-  title: 'Yadog API Docs',
-  intro: 'Welcome to Yadog v' + version + ' API documentation.',
+  earmark: 'yamdog',
+  title: 'Yamdog API Docs',
+  intro: 'Welcome to Yamdog v' + version + ' API documentation.',
   decorators: [
-    yadog.decorators.replace([
+    yamdog.decorators.replace([
       {
         pattern: /^param(?:eter)?s?:?/i,
         replacement: '**Parameters:**'
@@ -21,6 +21,6 @@ yadog.generate({
         replacement: '**Returns:**'
       }
     ]),
-    yadog.decorators.linkNames()
+    yamdog.decorators.linkNames()
   ]
 })

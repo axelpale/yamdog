@@ -1,11 +1,11 @@
-// Test by generating Yadog's own documentation.
+// Test by generating Yamdog's own documentation.
 
-const yadog = require('../index')
+const yamdog = require('../index')
 const path = require('path')
 
 const modulePath = path.resolve(__dirname, '..')
-const tree = yadog.parse({
-  earmark: 'yadog',
+const tree = yamdog.parse({
+  earmark: 'yamdog',
   path: modulePath
 })
 

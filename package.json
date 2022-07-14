@@ -1,5 +1,5 @@
 {
-  "name": "yadog",
+  "name": "yamdog",
   "version": "0.3.0",
   "description": "Yet another documentation generator. Scrapes comments in code for Markdown and YAML syntax.",
   "keywords": [
@@ -13,7 +13,7 @@
     "scraper",
     "yaml"
   ],
-  "homepage": "https://github.com/axelpale/yadog",
+  "homepage": "https://github.com/axelpale/yamdog",
   "main": "index.js",
   "author": {
     "name": "Akseli Palen",
@@ -21,7 +21,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/axelpale/yadog.git"
+    "url": "git://github.com/axelpale/yamdog.git"
   },
   "license": "MIT",
   "devDependencies": {
