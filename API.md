@@ -6,6 +6,7 @@ Welcome to Yamdog v1.0.1 API documentation.
 
 - [yamdog.generate](#yamdoggenerate)
 - [yamdog.parse](#yamdogparse)
+- [yamdog.stringify](#yamdogstringify)
 - [yamdog.render](#yamdogrender)
 - [yamdog.decorate](#yamdogdecorate)
 - [yamdog.decorators](#yamdogdecorators)
@@ -13,6 +14,7 @@ Welcome to Yamdog v1.0.1 API documentation.
 - [yamdog.decorators.boldListTitles](#yamdogdecoratorsboldListTitles)
 - [yamdog.decorators.linkNames](#yamdogdecoratorslinkNames)
 - [yamdog.decorators.replace](#yamdogdecoratorsreplace)
+- [yamdog.decorators.fillAliases](#yamdogdecoratorsfillAliases)
 
 <a name="yamdoggenerate"></a>
 ## yamdog.generate(config)
@@ -55,12 +57,23 @@ Parse doc block objects from code.
 - an array of doc block objects.
 
 A parsed doc block object has properties:
-- name
-  - string, the unit name derived from the call signature
 - signature
   - string, the call signature
+- name
+  - string, the unit name derived from the call signature.
+- hash
+  - string, an URL friendly hash derived from the name.
+- aliases
+  - array of alias objects { hash, name, signature }. Navigational data about blocks that are aliases of this block.
 - paragraphs
   - array of paragraph objects { type, body }
+
+Aliases: [yamdog.stringify](#yamdogstringify)
+
+<a name="yamdogstringify"></a>
+## yamdog.stringify(mod)
+
+Alias of [yamdog.parse](#yamdogparse)
 
 <a name="yamdogrender"></a>
 ## yamdog.render(blocks, options)
@@ -143,6 +156,22 @@ Replaces the given patterns using String.prototype.replace().
 **Parameters:**
 - rules
   - array of replacement rule objects { pattern, replacement }
+
+**Returns:**
+- a function, a decorator function.
+
+<a name="yamdogdecoratorsfillAliases"></a>
+## yamdog.decorators.fillAliases(opts)
+
+Creates a decorator function that appends paragraphs for aliases.
+
+**Parameters:**
+- opts
+  - optional object with props:
+    - aliasesLabel
+      - optional string, default 'Aliases: '. For the primary unit.
+    - aliasOfLabel:
+      - optional string, default 'Alias of '. For the alias-only units.
 
 **Returns:**
 - a function, a decorator function.
