@@ -48,14 +48,14 @@ A parsed doc block object has properties:
 
 Aliases: [yamdog.stringify](#yamdogstringify)
 
-Source code: [index.js](https://github.com/axelpale/yamdog/blob/main/lib/parse/index.js)
+Source: [parse/index.js](https://github.com/axelpale/yamdog/blob/main/lib/parse/index.js)
 
 <a name="yamdogstringify"></a>
 ## yamdog.stringify(mod)
 
 Alias of [yamdog.parse](#yamdogparse)
 
-Source code: [index.js](https://github.com/axelpale/yamdog/blob/main/lib/parse/index.js)
+Source: [parse/index.js](https://github.com/axelpale/yamdog/blob/main/lib/parse/index.js)
 
 <a name="yamdogdecorate"></a>
 ## yamdog.decorate(blocks, decorators)
@@ -73,7 +73,7 @@ built-in decorator functions.
 **Returns:**
 - array of new decorated block objects
 
-Source code: [index.js](https://github.com/axelpale/yamdog/blob/main/lib/decorate/index.js)
+Source: [decorate/index.js](https://github.com/axelpale/yamdog/blob/main/lib/decorate/index.js)
 
 <a name="yamdogrender"></a>
 ## yamdog.render(blocks, options)
@@ -92,7 +92,7 @@ Render API docs in Markdown.
 **Returns:**
 - string, in Markdown syntax.
 
-Source code: [index.js](https://github.com/axelpale/yamdog/blob/main/lib/render/index.js)
+Source: [render/index.js](https://github.com/axelpale/yamdog/blob/main/lib/render/index.js)
 
 <a name="yamdoggenerate"></a>
 ## yamdog.generate(config)
@@ -119,7 +119,7 @@ in this order.
     - silent
       - boolean. Disable console output. Default is `false`.
 
-Source code: [generate.js](https://github.com/axelpale/yamdog/blob/main/lib/generate.js)
+Source: [generate.js](https://github.com/axelpale/yamdog/blob/main/lib/generate.js)
 
 <a name="yamdogdecorators"></a>
 ## yamdog.decorators
@@ -130,7 +130,7 @@ You can also create your own custom decorators.
 Each decorator is a function that maps an array of parsed doc blocks
 to a new array of decorated doc blocks.
 
-Source code: [index.js](https://github.com/axelpale/yamdog/blob/main/lib/decorators/index.js)
+Source: [decorators/index.js](https://github.com/axelpale/yamdog/blob/main/lib/decorators/index.js)
 
 <a name="yamdogdecoratorsboldKeywords"></a>
 ## yamdog.decorators.boldKeywords
@@ -144,7 +144,7 @@ Bolds the given keywords with Markdown &ast;&ast;bold&ast;&ast; syntax.
 **Returns:**
 - a function, a decorator function.
 
-Source code: [boldKeywords.js](https://github.com/axelpale/yamdog/blob/main/lib/decorators/boldKeywords.js)
+Source: [boldKeywords.js](https://github.com/axelpale/yamdog/blob/main/lib/decorators/boldKeywords.js)
 
 <a name="yamdogdecoratorsboldListTitles"></a>
 ## yamdog.decorators.boldListTitles
@@ -155,7 +155,7 @@ Markdown &ast;&ast;bold&ast;&ast; syntax.
 **Returns:**
 - a function, a decorator function.
 
-Source code: [boldListTitles.js](https://github.com/axelpale/yamdog/blob/main/lib/decorators/boldListTitles.js)
+Source: [boldListTitles.js](https://github.com/axelpale/yamdog/blob/main/lib/decorators/boldListTitles.js)
 
 <a name="yamdogdecoratorslinkFiles"></a>
 ## yamdog.decorators.linkFiles(config)
@@ -170,11 +170,13 @@ with a paragraph that contains a link to the source code.
       - string, the dir path to trim away from abs file paths.
     - baseUrl
       - string, the URL to prefix the paths.
+    - label
+      - optional string, default 'Source: '.
 
 **Returns:**
 - a function, a decorator function.
 
-Source code: [linkFiles.js](https://github.com/axelpale/yamdog/blob/main/lib/decorators/linkFiles.js)
+Source: [linkFiles.js](https://github.com/axelpale/yamdog/blob/main/lib/decorators/linkFiles.js)
 
 <a name="yamdogdecoratorsreplace"></a>
 ## yamdog.decorators.replace
@@ -188,7 +190,7 @@ Replaces the given patterns using String.prototype.replace().
 **Returns:**
 - a function, a decorator function.
 
-Source code: [replace.js](https://github.com/axelpale/yamdog/blob/main/lib/decorators/replace.js)
+Source: [replace.js](https://github.com/axelpale/yamdog/blob/main/lib/decorators/replace.js)
 
 <a name="yamdogdecoratorslinkNames"></a>
 ## yamdog.decorators.linkNames()
@@ -200,7 +202,7 @@ a link to the block heading anchor.
 **Returns:**
 - a function, a decorator function.
 
-Source code: [linkNames.js](https://github.com/axelpale/yamdog/blob/main/lib/decorators/linkNames.js)
+Source: [linkNames.js](https://github.com/axelpale/yamdog/blob/main/lib/decorators/linkNames.js)
 
 <a name="yamdogdecoratorsfillAliases"></a>
 ## yamdog.decorators.fillAliases(opts)
@@ -218,7 +220,7 @@ Creates a decorator function that appends paragraphs for aliases.
 **Returns:**
 - a function, a decorator function.
 
-Source code: [fillAliases.js](https://github.com/axelpale/yamdog/blob/main/lib/decorators/fillAliases.js)
+Source: [fillAliases.js](https://github.com/axelpale/yamdog/blob/main/lib/decorators/fillAliases.js)
 
 <p style="text-align: right">
 <a href="#top">&uarr; Back To Top</a>
