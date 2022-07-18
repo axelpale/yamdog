@@ -6,7 +6,7 @@ const version = require('../package.json').version
 
 yamdog.generate({
   entry: path.resolve(__dirname, '../index.js'),
-  output: path.resolve(__dirname, '..', 'API.md'),
+  output: path.resolve(__dirname, '..', 'api.md'),
   earmark: 'yamdog',
   title: 'Yamdog API Docs',
   intro: 'Welcome to Yamdog v' + version + ' API documentation.',
