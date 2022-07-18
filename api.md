@@ -242,7 +242,7 @@ Creates a decorator function that appends paragraphs for aliases.
 **Returns:**
 - a function, a decorator function.
 
-Source: [fillAliases.js](https://github.com/axelpale/yamdog/blob/main/lib/decorators/fillAliases.js)
+Source: [aliases.js](https://github.com/axelpale/yamdog/blob/main/lib/decorators/aliases.js)
 
 <a name="yamdogdecoratorstoc"></a>
 ## yamdog.decorators.toc(config)

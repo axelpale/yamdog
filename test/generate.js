@@ -21,7 +21,7 @@ yamdog.generate({
         replacement: '**Returns:**'
       }
     ]),
-    yamdog.decorators.fillAliases(),
+    yamdog.decorators.aliases(),
     yamdog.decorators.linkNames(),
     yamdog.decorators.toc(),
     yamdog.decorators.sourceLinks({
