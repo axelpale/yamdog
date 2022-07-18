@@ -23,10 +23,10 @@ yamdog.generate({
     ]),
     yamdog.decorators.fillAliases(),
     yamdog.decorators.linkNames(),
+    yamdog.decorators.toc(),
     yamdog.decorators.linkFiles({
       basePath: path.resolve(__dirname, '..'),
       baseUrl: 'https://github.com/axelpale/yamdog/blob/main/'
     }),
-    yamdog.decorators.toc()
   ]
 })
