@@ -4,19 +4,21 @@
 Welcome to Yamdog v1.0.1 API documentation.
 
 
+<a name="yamdog"></a>
+## yamdog
+
+The module provides following tools for parsing, decorating, and rendering
+YAML and Markdown flavoured API documentation from source code comments.
+
+Source: [lib/index.js](https://github.com/axelpale/yamdog/blob/main/lib/index.js)
+
 - [yamdog.parse](#yamdogparse)
 - [yamdog.stringify](#yamdogstringify)
 - [yamdog.decorate](#yamdogdecorate)
 - [yamdog.render](#yamdogrender)
 - [yamdog.generate](#yamdoggenerate)
 - [yamdog.decorators](#yamdogdecorators)
-- [yamdog.decorators.boldKeywords](#yamdogdecoratorsboldKeywords)
-- [yamdog.decorators.boldListTitles](#yamdogdecoratorsboldListTitles)
-- [yamdog.decorators.linkFiles](#yamdogdecoratorslinkFiles)
-- [yamdog.decorators.replace](#yamdogdecoratorsreplace)
-- [yamdog.decorators.linkNames](#yamdogdecoratorslinkNames)
-- [yamdog.decorators.fillAliases](#yamdogdecoratorsfillAliases)
-- [yamdog.decorators.toc](#yamdogdecoratorstoc)
+
 
 <a name="yamdogparse"></a>
 ## yamdog.parse(mod)
@@ -142,6 +144,15 @@ the input is not altered in any way.
 This prevents a class of problems that would be very hard to debug.
 
 Source: [decorators/index.js](https://github.com/axelpale/yamdog/blob/main/lib/decorators/index.js)
+
+- [yamdog.decorators.boldKeywords](#yamdogdecoratorsboldKeywords)
+- [yamdog.decorators.boldListTitles](#yamdogdecoratorsboldListTitles)
+- [yamdog.decorators.linkFiles](#yamdogdecoratorslinkFiles)
+- [yamdog.decorators.replace](#yamdogdecoratorsreplace)
+- [yamdog.decorators.linkNames](#yamdogdecoratorslinkNames)
+- [yamdog.decorators.fillAliases](#yamdogdecoratorsfillAliases)
+- [yamdog.decorators.toc](#yamdogdecoratorstoc)
+
 
 <a name="yamdogdecoratorsboldKeywords"></a>
 ## yamdog.decorators.boldKeywords
