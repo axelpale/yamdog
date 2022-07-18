@@ -4,17 +4,95 @@
 Welcome to Yamdog v1.0.1 API documentation.
 
 
-- [yamdog.generate](#yamdoggenerate)
 - [yamdog.parse](#yamdogparse)
 - [yamdog.stringify](#yamdogstringify)
-- [yamdog.render](#yamdogrender)
 - [yamdog.decorate](#yamdogdecorate)
+- [yamdog.render](#yamdogrender)
+- [yamdog.generate](#yamdoggenerate)
 - [yamdog.decorators](#yamdogdecorators)
 - [yamdog.decorators.boldKeywords](#yamdogdecoratorsboldKeywords)
 - [yamdog.decorators.boldListTitles](#yamdogdecoratorsboldListTitles)
-- [yamdog.decorators.linkNames](#yamdogdecoratorslinkNames)
+- [yamdog.decorators.linkFiles](#yamdogdecoratorslinkFiles)
 - [yamdog.decorators.replace](#yamdogdecoratorsreplace)
+- [yamdog.decorators.linkNames](#yamdogdecoratorslinkNames)
 - [yamdog.decorators.fillAliases](#yamdogdecoratorsfillAliases)
+
+<a name="yamdogparse"></a>
+## yamdog.parse(mod)
+
+Parse doc block objects from code.
+
+**Parameters:**
+- mod
+  - earmark
+    - string, the earmark signature, for example the module name. Comment blocks that begin with this signature will be included.
+  - path
+    - string, absolute directory or file path to the module
+
+**Returns:**
+- an array of doc block objects.
+
+A parsed doc block object has properties:
+- file
+  - string, the absolute file path that contains the block.
+- signature
+  - string, the call signature
+- name
+  - string, the unit name derived from the call signature.
+- hash
+  - string, an URL friendly hash derived from the name.
+- aliases
+  - array of alias objects { hash, name, signature }. Navigational data about blocks that are aliases of this block.
+- paragraphs
+  - array of paragraph objects { type, body }
+
+Aliases: [yamdog.stringify](#yamdogstringify)
+
+Source code: [index.js](https://github.com/axelpale/yamdog/blob/main/lib/parse/index.js)
+
+<a name="yamdogstringify"></a>
+## yamdog.stringify(mod)
+
+Alias of [yamdog.parse](#yamdogparse)
+
+Source code: [index.js](https://github.com/axelpale/yamdog/blob/main/lib/parse/index.js)
+
+<a name="yamdogdecorate"></a>
+## yamdog.decorate(blocks, decorators)
+
+Decorate parsed blocks. The list of decorator functions are applied to
+each block in the given order. See [yamdog.decorators](#yamdogdecorators) for available
+built-in decorator functions.
+
+**Parameters:**
+- blocks
+  - array of parsed blocks
+- decorators
+  - array of decorator functions
+
+**Returns:**
+- array of new decorated block objects
+
+Source code: [index.js](https://github.com/axelpale/yamdog/blob/main/lib/decorate/index.js)
+
+<a name="yamdogrender"></a>
+## yamdog.render(blocks, options)
+
+Render API docs in Markdown.
+
+**Parameters:**
+- blocks
+  - parsed blocks
+- options
+  - title
+    - optional string, default 'API Reference'.
+  - intro
+    - optional string, default ''.
+
+**Returns:**
+- string, in Markdown syntax.
+
+Source code: [index.js](https://github.com/axelpale/yamdog/blob/main/lib/render/index.js)
 
 <a name="yamdoggenerate"></a>
 ## yamdog.generate(config)
@@ -41,72 +119,7 @@ in this order.
     - silent
       - boolean. Disable console output. Default is `false`.
 
-<a name="yamdogparse"></a>
-## yamdog.parse(mod)
-
-Parse doc block objects from code.
-
-**Parameters:**
-- mod
-  - earmark
-    - string, the earmark signature, for example the module name. Comment blocks that begin with this signature will be included.
-  - path
-    - string, absolute directory or file path to the module
-
-**Returns:**
-- an array of doc block objects.
-
-A parsed doc block object has properties:
-- signature
-  - string, the call signature
-- name
-  - string, the unit name derived from the call signature.
-- hash
-  - string, an URL friendly hash derived from the name.
-- aliases
-  - array of alias objects { hash, name, signature }. Navigational data about blocks that are aliases of this block.
-- paragraphs
-  - array of paragraph objects { type, body }
-
-Aliases: [yamdog.stringify](#yamdogstringify)
-
-<a name="yamdogstringify"></a>
-## yamdog.stringify(mod)
-
-Alias of [yamdog.parse](#yamdogparse)
-
-<a name="yamdogrender"></a>
-## yamdog.render(blocks, options)
-
-Render API docs in Markdown.
-
-**Parameters:**
-- blocks
-  - parsed blocks
-- options
-  - title
-    - optional string, default 'API Reference'.
-  - intro
-    - optional string, default ''.
-
-**Returns:**
-- string, in Markdown syntax.
-
-<a name="yamdogdecorate"></a>
-## yamdog.decorate(blocks, decorators)
-
-Decorate parsed blocks. The list of decorator functions are applied to
-each block in the given order. See [yamdog.decorators](#yamdogdecorators) for available
-built-in decorator functions.
-
-**Parameters:**
-- blocks
-  - array of parsed blocks
-- decorators
-  - array of decorator functions
-
-**Returns:**
-- array of new decorated block objects
+Source code: [generate.js](https://github.com/axelpale/yamdog/blob/main/lib/generate.js)
 
 <a name="yamdogdecorators"></a>
 ## yamdog.decorators
@@ -116,6 +129,8 @@ With decorators you can style the document in various ways.
 You can also create your own custom decorators.
 Each decorator is a function that maps an array of parsed doc blocks
 to a new array of decorated doc blocks.
+
+Source code: [index.js](https://github.com/axelpale/yamdog/blob/main/lib/decorators/index.js)
 
 <a name="yamdogdecoratorsboldKeywords"></a>
 ## yamdog.decorators.boldKeywords
@@ -129,6 +144,8 @@ Bolds the given keywords with Markdown &ast;&ast;bold&ast;&ast; syntax.
 **Returns:**
 - a function, a decorator function.
 
+Source code: [boldKeywords.js](https://github.com/axelpale/yamdog/blob/main/lib/decorators/boldKeywords.js)
+
 <a name="yamdogdecoratorsboldListTitles"></a>
 ## yamdog.decorators.boldListTitles
 
@@ -138,15 +155,26 @@ Markdown &ast;&ast;bold&ast;&ast; syntax.
 **Returns:**
 - a function, a decorator function.
 
-<a name="yamdogdecoratorslinkNames"></a>
-## yamdog.decorators.linkNames
+Source code: [boldListTitles.js](https://github.com/axelpale/yamdog/blob/main/lib/decorators/boldListTitles.js)
 
-Easy way to create links for block name occurrences in text.
-Searches block contents for block names and replaces each match with
-a link to the block heading anchor.
+<a name="yamdogdecoratorslinkFiles"></a>
+## yamdog.decorators.linkFiles(config)
+
+Creates a decorator function that extends each block
+with a paragraph that contains a link to the source code.
+
+**Parameters:**
+- config
+  - object with props:
+    - basePath
+      - string, the dir path to trim away from abs file paths.
+    - baseUrl
+      - string, the URL to prefix the paths.
 
 **Returns:**
 - a function, a decorator function.
+
+Source code: [linkFiles.js](https://github.com/axelpale/yamdog/blob/main/lib/decorators/linkFiles.js)
 
 <a name="yamdogdecoratorsreplace"></a>
 ## yamdog.decorators.replace
@@ -159,6 +187,20 @@ Replaces the given patterns using String.prototype.replace().
 
 **Returns:**
 - a function, a decorator function.
+
+Source code: [replace.js](https://github.com/axelpale/yamdog/blob/main/lib/decorators/replace.js)
+
+<a name="yamdogdecoratorslinkNames"></a>
+## yamdog.decorators.linkNames()
+
+Easy way to create links for block name occurrences in text.
+Searches block contents for block names and replaces each match with
+a link to the block heading anchor.
+
+**Returns:**
+- a function, a decorator function.
+
+Source code: [linkNames.js](https://github.com/axelpale/yamdog/blob/main/lib/decorators/linkNames.js)
 
 <a name="yamdogdecoratorsfillAliases"></a>
 ## yamdog.decorators.fillAliases(opts)
@@ -175,6 +217,8 @@ Creates a decorator function that appends paragraphs for aliases.
 
 **Returns:**
 - a function, a decorator function.
+
+Source code: [fillAliases.js](https://github.com/axelpale/yamdog/blob/main/lib/decorators/fillAliases.js)
 
 <p style="text-align: right">
 <a href="#top">&uarr; Back To Top</a>
