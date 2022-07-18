@@ -198,7 +198,7 @@ with a paragraph that contains a link to the source code.
 **Returns:**
 - a function, a decorator function.
 
-Source: [linkFiles.js](https://github.com/axelpale/yamdog/blob/main/lib/decorators/linkFiles.js)
+Source: [sourceLinks.js](https://github.com/axelpale/yamdog/blob/main/lib/decorators/sourceLinks.js)
 
 <a name="yamdogdecoratorsreplace"></a>
 ## yamdog.decorators.replace
