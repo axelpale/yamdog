@@ -7,6 +7,8 @@
 
 Yet another [API](https://en.wikipedia.org/wiki/API) documentation generator for JavaScript. Minimal, indentation-based syntax that keeps your comments readable. Yamdog reads your ECMAScript projects structured in [CommonJS](https://www.commonjs.org/) or [ESM](https://nodejs.org/api/esm.html) module format. It follows relative require and import statements to crawl through your code. From the code, it scrapes earmarked comment blocks for plain text, [Markdown](https://en.wikipedia.org/wiki/Markdown), and [YAML](https://yaml.org/). Then it renders the blocks together, spices them up with tables of contents and happiness, and finally outputs a Markdown document.
 
+[Install](#install) - [Syntax](#syntax) - [Usage](#usage) - [API Docs](https://axelpale.github.io/yamdog/API.md) - [Contribute](#contribute) - [GitHub](https://github.com/axelpale/yamdog)
+
 > Ya m'dog, I herd you like docs so we wrote docs for our docs generator so you can read docs while u generate yo docs.
 
 
@@ -139,7 +141,7 @@ See [API documentation](https://axelpale.github.io/yamdog/API.md) for details. G
 
 ## Contribute
 
-Pull requests and [bug reports](https://github.com/axelpale/yamdog/issues) are highly appreciated. Please test your contribution with the following scripts:
+Pull requests and [bug reports](https://github.com/axelpale/yamdog/issues) via [GitHub](https://github.com/axelpale/yamdog) are highly appreciated. Please test your contribution with the following scripts:
 
 Run code linter:
 
