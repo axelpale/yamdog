@@ -26,6 +26,7 @@ yamdog.generate({
     yamdog.decorators.linkFiles({
       basePath: path.resolve(__dirname, '..'),
       baseUrl: 'https://github.com/axelpale/yamdog/blob/main/'
-    })
+    }),
+    yamdog.decorators.toc()
   ]
 })
