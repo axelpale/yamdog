@@ -28,9 +28,9 @@ each block in the given order. See [yamdog.decorators](#yamdogdecorators) for av
 built-in decorator functions.
 
 **Parameters:**
-- blocks
+- *blocks*
   - array of parsed blocks
-- decorators
+- *decorators*
   - array of decorator functions
 
 **Returns:**
@@ -61,18 +61,38 @@ The decorator function is allowed to create, modify, sort, and
 remove blocks. However, the output must still be a valid array of blocks
 that can be subjected for further processing.
 
+- [yamdog.decorators.aliases](#yamdogdecoratorsaliases)
 - [yamdog.decorators.alphabetical](#yamdogdecoratorsalphabetical)
 - [yamdog.decorators.backTopLinks](#yamdogdecoratorsbackTopLinks)
 - [yamdog.decorators.boldKeywords](#yamdogdecoratorsboldKeywords)
 - [yamdog.decorators.boldListTitles](#yamdogdecoratorsboldListTitles)
-- [yamdog.decorators.fillAliases](#yamdogdecoratorsfillAliases)
+- [yamdog.decorators.italicSingles](#yamdogdecoratorsitalicSingles)
 - [yamdog.decorators.linkFiles](#yamdogdecoratorslinkFiles)
 - [yamdog.decorators.linkNames](#yamdogdecoratorslinkNames)
 - [yamdog.decorators.replace](#yamdogdecoratorsreplace)
+- [yamdog.decorators.replaceListValues](#yamdogdecoratorsreplaceListValues)
 - [yamdog.decorators.toc](#yamdogdecoratorstoc)
 
 
 Source: [decorators/index.js](https://github.com/axelpale/yamdog/blob/main/lib/decorators/index.js)
+
+<a name="yamdogdecoratorsaliases"></a>
+## yamdog.decorators.aliases(opts)
+
+Creates a decorator function that appends paragraphs for aliases.
+
+**Parameters:**
+- *opts*
+  - optional object with props:
+    - *aliasesLabel*
+      - optional string, default 'Aliases: '. For the primary unit.
+    - *aliasOfLabel*
+      - optional string, default 'Alias of '. For the alias-only units.
+
+**Returns:**
+- a function, a decorator function.
+
+Source: [aliases.js](https://github.com/axelpale/yamdog/blob/main/lib/decorators/aliases.js)
 
 <a name="yamdogdecoratorsalphabetical"></a>
 ## yamdog.decorators.alphabetical(opts)
@@ -80,8 +100,8 @@ Source: [decorators/index.js](https://github.com/axelpale/yamdog/blob/main/lib/d
 Sort blocks in alphabetical order.
 
 **Parameters:**
-- opts
-  - object
+- *opts*
+  - *object*
 
 **Returns:**
 - a function, a decorator function.
@@ -92,13 +112,13 @@ Source: [alphabetical.js](https://github.com/axelpale/yamdog/blob/main/lib/decor
 ## yamdog.decorators.backTopLinks(opts)
 
 Extends the last block with a link back to the top of the page.
-In future versions this decorator might be extended to add back
+In future versions this decorator might be upgraded to add back
 links also at every 10th block or so.
 
 **Parameters:**
-- opts
+- *opts*
   - optional object with props:
-    - label
+    - *label*
       - optional string. Default '&uarr; Back To Top'
 
 **Returns:**
@@ -112,7 +132,7 @@ Source: [backTopLinks.js](https://github.com/axelpale/yamdog/blob/main/lib/decor
 Bolds the given keywords with Markdown &ast;&ast;bold&ast;&ast; syntax.
 
 **Parameters:**
-- keywords
+- *keywords*
   - array of strings or regexp objects
 
 **Returns:**
@@ -131,23 +151,20 @@ Markdown &ast;&ast;bold&ast;&ast; syntax.
 
 Source: [boldListTitles.js](https://github.com/axelpale/yamdog/blob/main/lib/decorators/boldListTitles.js)
 
-<a name="yamdogdecoratorsfillAliases"></a>
-## yamdog.decorators.fillAliases(opts)
+<a name="yamdogdecoratorsitalicSingles"></a>
+## yamdog.decorators.italicSingles()
 
-Creates a decorator function that appends paragraphs for aliases.
+Emphasizes list item values that contain only a single word.
+This can be used to make parameter names and property names stand out.
 
-**Parameters:**
-- opts
-  - optional object with props:
-    - aliasesLabel
-      - optional string, default 'Aliases: '. For the primary unit.
-    - aliasOfLabel:
-      - optional string, default 'Alias of '. For the alias-only units.
+For example the list values "foobar", "fooBar", and "foo_bar"
+would be emphasized but the values "foo bar", "foo.bar", and "foo:"
+would not. See [yamdog.decorators.replaceListValues](#yamdogdecoratorsreplaceListValues) for customization.
 
 **Returns:**
 - a function, a decorator function.
 
-Source: [aliases.js](https://github.com/axelpale/yamdog/blob/main/lib/decorators/aliases.js)
+Source: [italicSingles.js](https://github.com/axelpale/yamdog/blob/main/lib/decorators/italicSingles.js)
 
 <a name="yamdogdecoratorslinkFiles"></a>
 ## yamdog.decorators.linkFiles(config)
@@ -156,13 +173,13 @@ Creates a decorator function that extends each block
 with a paragraph that contains a link to the source code.
 
 **Parameters:**
-- config
+- *config*
   - object with props:
-    - basePath
+    - *basePath*
       - string, the dir path to trim away from abs file paths.
-    - baseUrl
+    - *baseUrl*
       - string, the URL to prefix the paths.
-    - label
+    - *label*
       - optional string, default 'Source: '.
 
 **Returns:**
@@ -188,7 +205,7 @@ Source: [linkNames.js](https://github.com/axelpale/yamdog/blob/main/lib/decorato
 Replaces the given patterns using String.prototype.replace().
 
 **Parameters:**
-- rules
+- *rules*
   - array of replacement rule objects { pattern, replacement }
 
 **Returns:**
@@ -196,14 +213,35 @@ Replaces the given patterns using String.prototype.replace().
 
 Source: [replace.js](https://github.com/axelpale/yamdog/blob/main/lib/decorators/replace.js)
 
+<a name="yamdogdecoratorsreplaceListValues"></a>
+## yamdog.decorators.replaceListValues
+
+Replaces all list values according to given rules.
+Uses applies String.prototype.replace() for each list value.
+
+**Parameters:**
+- *config*
+  - object with properties:
+    - *rules*
+      - array of replacement rule objects { pattern, replacement }
+    - *minDepth*
+      - optional integer. Default 0. Value of 1 means the root list item is skipped.
+    - *maxDepth*
+      - optional integer. Default Infinity. Value of 1 means that list items at depth 2 and beyond are skipped.
+
+**Returns:**
+- a function, a decorator function.
+
+Source: [replaceListValues.js](https://github.com/axelpale/yamdog/blob/main/lib/decorators/replaceListValues.js)
+
 <a name="yamdogdecoratorstoc"></a>
 ## yamdog.decorators.toc(config)
 
 Create and insert table of contents for each module that has child blocks.
 
 **Parameters:**
-- config
-  - object
+- *config*
+  - *object*
 
 **Returns:**
 - a function, a decorator function.
@@ -218,21 +256,21 @@ Internally uses [yamdog.parse](#yamdogparse), [yamdog.decorate](#yamdogdecorate)
 in this order.
 
 **Parameters:**
-- config
+- *config*
   - object with properties
-    - entry
+    - *entry*
       - string, an absolute directory or file path. The location of the module to be documented. All relative require and import statements like `var lib = require('./lib')` are followed in the order they occur in the code. Absolute or named imports like `var _ = require('lodash')` and `import baz from 'foo/bar'` are skipped.
-    - output
+    - *output*
       - string, an absolute path to the target file to generate. For example '/home/xeli/projects/yamdog/API.md'.
-    - earmark
+    - *earmark*
       - string, the earmark signature to look for in the comment blocks to include to the documentation. The earmark is usually the module name like `mylib`. It does not need to match the real package name but it must match the signature used in the comments.
-    - title
+    - *title*
       - optional string, the document title and main heading. Default is `'API Documentation'`.
-    - intro
+    - *intro*
       - optional string, the introduction paragraph. Default is `''`.
-    - decorators
+    - *decorators*
       - array of decorator functions. Default is `[]`.
-    - silent
+    - *silent*
       - boolean. Disable console output. Default is `false`.
 
 Source: [generate.js](https://github.com/axelpale/yamdog/blob/main/lib/generate.js)
@@ -243,27 +281,27 @@ Source: [generate.js](https://github.com/axelpale/yamdog/blob/main/lib/generate.
 Parse doc block objects from code.
 
 **Parameters:**
-- mod
-  - earmark
+- *mod*
+  - *earmark*
     - string, the earmark signature, for example the module name. Comment blocks that begin with this signature will be included.
-  - path
+  - *path*
     - string, absolute directory or file path to the module
 
 **Returns:**
 - an array of doc block objects.
 
 A parsed doc block object has properties:
-- file
+- *file*
   - string, the absolute file path that contains the block.
-- signature
+- *signature*
   - string, the call signature
-- name
+- *name*
   - string, the unit name derived from the call signature.
-- hash
+- *hash*
   - string, an URL friendly hash derived from the name.
-- aliases
+- *aliases*
   - array of alias objects { hash, name, signature }. Navigational data about blocks that are aliases of this block.
-- paragraphs
+- *paragraphs*
   - array of paragraph objects { type, body }
 
 Aliases: [yamdog.stringify](#yamdogstringify)
@@ -276,12 +314,12 @@ Source: [parse/index.js](https://github.com/axelpale/yamdog/blob/main/lib/parse/
 Render API docs in Markdown.
 
 **Parameters:**
-- blocks
+- *blocks*
   - parsed blocks
-- options
-  - title
+- *options*
+  - *title*
     - optional string, default 'API Reference'.
-  - intro
+  - *intro*
     - optional string, default ''.
 
 **Returns:**
