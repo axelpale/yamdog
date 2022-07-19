@@ -94,11 +94,47 @@ The markdown above renders to:
 
 ## Syntax
 
-- A *comment block* is a set of adjacent lines of `//` comments.
-- To *earmark* a comment block to be included to your docs, begin the block with a line that contains `// name.of.my.module`. The earmark line also presents how to access and call the documented feature.
-- To exclude a line in an earmarked comment block, use triple slash `///`.
-- Indent with space `' '` or dash `'-'` to create lists.
-- To write multi-line list items, prefix each new line with a double or triple dot `..`. Otherwise the new line becomes a new list item.
+A *comment block* is a set of adjacent lines of `//` comments.
+
+    // A comment block
+    // that has some text
+    some = code
+
+To *earmark* a comment block to be included to your docs, begin the block with a line that contains `// name.of.this.module`. The earmark line also presents how to access and call the documented feature.
+
+    // name.of.this.module
+    // This comment block will be included
+    // to the docs with a title "name.of.this.module"
+    some = code
+
+To exclude a line in an earmarked comment block, use triple slash `///`.
+
+    // name.of.this.module
+    // This line of text is visible in docs.
+    /// This line of text is not in docs.
+    some = code
+
+Indent with space `' '` or dash `'-'` to create lists.
+
+    // name.of.this.module(x, y)
+    //
+    // Parameters
+    //   x
+    //     list item with some text, for example
+    //   y
+    //     a number. Vertical coordinate.
+    //
+
+To write multi-line list items, prefix each new line with a double or triple dot `..`. Otherwise the new line becomes a new list item.
+
+    // name.of.this.module
+    //
+    // list title
+    //   first list item
+    //   second list item that spans
+    //   .. multiple lines of text like
+    //   .. no tomorrow
+    //   third list item
 
 ![Three bones](docs/yamdog_three_bones.png)
 
