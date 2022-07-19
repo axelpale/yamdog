@@ -116,12 +116,18 @@ In your project, create a file `docs/generate.js` with contents similar to:
       entry: path.resolve(__dirname, '../'),
       // Where to generate
       output: path.resolve(__dirname, 'API.md'),
-      // Module name; include blocks that begin with this name.
-      name: 'mylib',
+      // Earmark; include comment blocks that begin with this string
+      earmark: 'mylib',
       // Main title of the document
       title: 'Mylib API Documentation',
       // Introduction; the initial paragraph
       intro: 'Welcome to mylib API documentation.',
+      // Decorators; a customizable palette of features to pimp yo docs
+      decorators: [
+        yamdog.decorators.alphabetical(), // render in alphabetical order
+        yamdog.decorators.linkNames(), // convert name patterns to links
+        yamdog.decorators.toc() // insert tables of contents
+      ]
     })
 
 Then you can run it with Node and find your freshly baked docs at `docs/API.md`.
