@@ -22,15 +22,7 @@ yamdog.generate({
         replacement: '**Returns:**'
       }
     ]),
-    yamdog.decorators.replaceListValues({
-      minDepth: 1,
-      rules: [
-        {
-          pattern: /^(\w+)$/,
-          replacement: '*$1*'
-        }
-      ]
-    }),
+    yamdog.decorators.italicSingles(),
     yamdog.decorators.aliases(),
     yamdog.decorators.linkNames(),
     yamdog.decorators.toc(),
