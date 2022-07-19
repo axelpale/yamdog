@@ -53,11 +53,16 @@ although not prevent decorators interfering with each other.
 For example a bolding operation should not be done twice - the code
 must recognize if the text is already bold.
 
-The decorator function must also be immutable in the way that
-the input is not altered in any way.
+The decorator function must also be immutable so that
+the input stays unaltered.
 This prevents a class of problems that would be very hard to debug.
 
+The decorator function is allowed to create, modify, sort, and
+remove blocks. However, the output must still be a valid array of blocks
+that can be subjected for further processing.
+
 - [yamdog.decorators.alphabetical](#yamdogdecoratorsalphabetical)
+- [yamdog.decorators.backTopLinks](#yamdogdecoratorsbackTopLinks)
 - [yamdog.decorators.boldKeywords](#yamdogdecoratorsboldKeywords)
 - [yamdog.decorators.boldListTitles](#yamdogdecoratorsboldListTitles)
 - [yamdog.decorators.fillAliases](#yamdogdecoratorsfillAliases)
@@ -82,6 +87,24 @@ Sort blocks in alphabetical order.
 - a function, a decorator function.
 
 Source: [alphabetical.js](https://github.com/axelpale/yamdog/blob/main/lib/decorators/alphabetical.js)
+
+<a name="yamdogdecoratorsbackTopLinks"></a>
+## yamdog.decorators.backTopLinks(opts)
+
+Extends the last block with a link back to the top of the page.
+In future versions this decorator might be extended to add back
+links also at every 10th block or so.
+
+**Parameters:**
+- opts
+  - optional object with props:
+    - label
+      - optional string. Default '&uarr; Back To Top'
+
+**Returns:**
+- a function, a decorator function.
+
+Source: [backTopLinks.js](https://github.com/axelpale/yamdog/blob/main/lib/decorators/backTopLinks.js)
 
 <a name="yamdogdecoratorsboldKeywords"></a>
 ## yamdog.decorators.boldKeywords
@@ -276,3 +299,4 @@ Source: [parse/index.js](https://github.com/axelpale/yamdog/blob/main/lib/parse/
 <p style="text-align: right">
 <a href="#top">&uarr; Back To Top</a>
 </p>
+

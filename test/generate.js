@@ -29,5 +29,6 @@ yamdog.generate({
       basePath: path.resolve(__dirname, '..'),
       baseUrl: 'https://github.com/axelpale/yamdog/blob/main/'
     }),
+    yamdog.decorators.backTopLinks(),
   ]
 })
