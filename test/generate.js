@@ -9,27 +9,5 @@ yamdog.generate({
   output: path.resolve(__dirname, '..', 'api.md'),
   earmark: 'yamdog',
   title: 'Yamdog API Docs',
-  intro: 'Welcome to Yamdog v' + version + ' API documentation.',
-  decorators: [
-    yamdog.decorators.alphabetical(),
-    yamdog.decorators.replace([
-      {
-        pattern: /^param(?:eter)?s?:?/i,
-        replacement: '**Parameters:**'
-      },
-      {
-        pattern: /^returns?:?/i,
-        replacement: '**Returns:**'
-      }
-    ]),
-    yamdog.decorators.italicSingles(),
-    yamdog.decorators.aliases(),
-    yamdog.decorators.linkNames(),
-    yamdog.decorators.toc(),
-    yamdog.decorators.sourceLinks({
-      basePath: path.resolve(__dirname, '..'),
-      baseUrl: 'https://github.com/axelpale/yamdog/blob/main/'
-    }),
-    yamdog.decorators.backTopLinks(),
-  ]
+  intro: 'Welcome to Yamdog v' + version + ' API documentation.'
 })

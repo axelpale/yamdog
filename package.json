@@ -30,7 +30,7 @@
   },
   "scripts": {
     "audit": "npm audit --production",
-    "build:docs": "node test/generate.js",
+    "build:docs": "node docs/generate.js",
     "lint": "standard 'lib/**/*.js' && echo 'OK'",
     "test": "npm run lint",
     "release": "npm run test && npm publish"
