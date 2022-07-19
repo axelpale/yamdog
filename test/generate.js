@@ -11,6 +11,7 @@ yamdog.generate({
   title: 'Yamdog API Docs',
   intro: 'Welcome to Yamdog v' + version + ' API documentation.',
   decorators: [
+    yamdog.decorators.alphabetical(),
     yamdog.decorators.replace([
       {
         pattern: /^param(?:eter)?s?:?/i,
