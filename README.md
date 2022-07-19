@@ -1,6 +1,6 @@
 # yamdog
 
-![Yamdog logo](doc/yamdog_logo.png)
+![Yamdog logo](docs/yamdog_logo.png)
 
 [![npm version](https://img.shields.io/npm/v/yamdog?color=green)](https://www.npmjs.com/package/yamdog)
 [![license](https://img.shields.io/npm/l/yamdog)](#license)
@@ -100,7 +100,7 @@ The markdown above renders to:
 - Indent with space `' '` or dash `'-'` to create lists.
 - To write multi-line list items, prefix each new line with a double or triple dot `..`. Otherwise the new line becomes a new list item.
 
-![Three bones](doc/yamdog_three_bones.png)
+![Three bones](docs/yamdog_three_bones.png)
 
 *Use triple slash `///` to exclude a line in an earmarked comment block.*
 
