@@ -1,7 +1,7 @@
 <a name="top"></a>
 # Yamdog API Docs
 
-Welcome to Yamdog v1.2.1 API documentation. This document is generated with Yamdog itself, of course.
+Welcome to Yamdog v1.3.0 API documentation. This document is generated with Yamdog itself, of course.
 
 
 <a name="yamdog"></a>
