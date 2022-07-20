@@ -9,7 +9,8 @@ yamdog.generate({
   output: path.resolve(__dirname, '..', 'api.md'),
   earmark: 'yamdog',
   title: 'Yamdog API Docs',
-  intro: 'Welcome to Yamdog v' + version + ' API documentation.',
+  intro: 'Welcome to Yamdog v' + version + ' API documentation. ' +
+    'This document is generated with Yamdog itself, of course.',
   decorators: [
     yamdog.decorators.alphabetical(),
     yamdog.decorators.replace([
