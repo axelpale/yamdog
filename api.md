@@ -67,11 +67,11 @@ that can be subjected for further processing.
 - [yamdog.decorators.boldKeywords](#yamdogdecoratorsboldKeywords)
 - [yamdog.decorators.boldListTitles](#yamdogdecoratorsboldListTitles)
 - [yamdog.decorators.italicSingles](#yamdogdecoratorsitalicSingles)
-- [yamdog.decorators.linkFiles](#yamdogdecoratorslinkFiles)
 - [yamdog.decorators.linkKeywords](#yamdogdecoratorslinkKeywords)
 - [yamdog.decorators.linkNames](#yamdogdecoratorslinkNames)
 - [yamdog.decorators.replace](#yamdogdecoratorsreplace)
 - [yamdog.decorators.replaceListValues](#yamdogdecoratorsreplaceListValues)
+- [yamdog.decorators.sourceLinks](#yamdogdecoratorssourceLinks)
 - [yamdog.decorators.toc](#yamdogdecoratorstoc)
 
 
@@ -167,27 +167,6 @@ would not. See [yamdog.decorators.replaceListValues](#yamdogdecoratorsreplaceLis
 
 Source: [italicSingles.js](https://github.com/axelpale/yamdog/blob/main/lib/decorators/italicSingles.js)
 
-<a name="yamdogdecoratorslinkFiles"></a>
-## yamdog.decorators.linkFiles(config)
-
-Creates a decorator function that extends each block
-with a paragraph that contains a link to the source code.
-
-**Parameters:**
-- *config*
-  - object with props:
-    - *basePath*
-      - string, the dir path to trim away from abs file paths.
-    - *baseUrl*
-      - string, the URL to prefix the paths.
-    - *label*
-      - optional string, default 'Source: '.
-
-**Returns:**
-- a function, a decorator function.
-
-Source: [sourceLinks.js](https://github.com/axelpale/yamdog/blob/main/lib/decorators/sourceLinks.js)
-
 <a name="yamdogdecoratorslinkKeywords"></a>
 ## yamdog.decorators.linkKeywords(keywordToUrl)
 
@@ -259,6 +238,35 @@ Uses applies [String.prototype.replace](https://developer.mozilla.org/en-US/docs
 - a function, a decorator function.
 
 Source: [replaceListValues.js](https://github.com/axelpale/yamdog/blob/main/lib/decorators/replaceListValues.js)
+
+<a name="yamdogdecoratorssourceLinks"></a>
+## yamdog.decorators.sourceLinks(config)
+
+Creates a decorator function that extends each block
+with a paragraph that contains a link to the source code.
+
+**Parameters:**
+- *config*
+  - object with props:
+    - *basePath*
+      - string, the dir path to trim away from abs file paths.
+    - *baseUrl*
+      - string, the URL to prefix the paths.
+    - *label*
+      - optional string, default 'Source: '.
+
+**Returns:**
+- a function, a decorator function.
+
+Example
+```
+decor.sourceLinks({
+  basePath: path.resolve(__dirname, '..'),
+  baseUrl: 'https://github.com/axelpale/yamdog/blob/main/'
+}),
+```
+
+Source: [sourceLinks.js](https://github.com/axelpale/yamdog/blob/main/lib/decorators/sourceLinks.js)
 
 <a name="yamdogdecoratorstoc"></a>
 ## yamdog.decorators.toc(config)
