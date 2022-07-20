@@ -3,6 +3,7 @@
 !/dist/.gitkeep
 /test/dist/*
 !/test/dist/.gitkeep
+/test/output.md
 
 # Logs
 logs
