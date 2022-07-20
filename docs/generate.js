@@ -26,6 +26,11 @@ yamdog.generate({
     yamdog.decorators.italicSingles(),
     yamdog.decorators.aliases(),
     yamdog.decorators.linkNames(),
+    yamdog.decorators.linkKeywords({
+      'String.prototype.replace':
+        'https://developer.mozilla.org/en-US/docs/Web/' +
+        'JavaScript/Reference/Global_Objects/String/replace'
+    }),
     yamdog.decorators.toc(),
     yamdog.decorators.sourceLinks({
       basePath: path.resolve(__dirname, '..'),

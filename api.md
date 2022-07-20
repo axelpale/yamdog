@@ -1,7 +1,7 @@
 <a name="top"></a>
 # Yamdog API Docs
 
-Welcome to Yamdog v1.2.1 API documentation.
+Welcome to Yamdog v1.2.1 API documentation. This document is generated with Yamdog itself, of course.
 
 
 <a name="yamdog"></a>
@@ -68,6 +68,7 @@ that can be subjected for further processing.
 - [yamdog.decorators.boldListTitles](#yamdogdecoratorsboldListTitles)
 - [yamdog.decorators.italicSingles](#yamdogdecoratorsitalicSingles)
 - [yamdog.decorators.linkFiles](#yamdogdecoratorslinkFiles)
+- [yamdog.decorators.linkKeywords](#yamdogdecoratorslinkKeywords)
 - [yamdog.decorators.linkNames](#yamdogdecoratorslinkNames)
 - [yamdog.decorators.replace](#yamdogdecoratorsreplace)
 - [yamdog.decorators.replaceListValues](#yamdogdecoratorsreplaceListValues)
@@ -187,6 +188,30 @@ with a paragraph that contains a link to the source code.
 
 Source: [sourceLinks.js](https://github.com/axelpale/yamdog/blob/main/lib/decorators/sourceLinks.js)
 
+<a name="yamdogdecoratorslinkKeywords"></a>
+## yamdog.decorators.linkKeywords(keywordToUrl)
+
+Create links for keyword occurrences in text.
+Searches block contents for the given keywords names
+and replaces each keyword match with a link to the matching URL.
+
+**Parameters:**
+- *keywordToUrl*
+  - an object where keys are keywords and values are URLs.
+
+Example:
+```
+linkKeywords({
+  'point2d': 'geometry/point2d.html',
+  'point3d': '#geometrypoint3d'
+})
+```
+
+**Returns:**
+- a function, a decorator function.
+
+Source: [linkKeywords.js](https://github.com/axelpale/yamdog/blob/main/lib/decorators/linkKeywords.js)
+
 <a name="yamdogdecoratorslinkNames"></a>
 ## yamdog.decorators.linkNames()
 
@@ -202,7 +227,8 @@ Source: [linkNames.js](https://github.com/axelpale/yamdog/blob/main/lib/decorato
 <a name="yamdogdecoratorsreplace"></a>
 ## yamdog.decorators.replace
 
-Replaces the given patterns using String.prototype.replace().
+Replaces the given patterns in text and lists
+by using [String.prototype.replace](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace).
 
 **Parameters:**
 - *rules*
@@ -217,7 +243,7 @@ Source: [replace.js](https://github.com/axelpale/yamdog/blob/main/lib/decorators
 ## yamdog.decorators.replaceListValues
 
 Replaces all list values according to given rules.
-Uses applies String.prototype.replace() for each list value.
+Uses applies [String.prototype.replace](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace)() for each list value.
 
 **Parameters:**
 - *config*
