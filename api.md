@@ -42,10 +42,35 @@ Source: [decorate/index.js](https://github.com/axelpale/yamdog/blob/main/lib/dec
 ## yamdog.decorators
 
 The default docs output is a bit dull.
+
 With decorators you can style the document in various ways.
-You can also create your own custom decorators.
+See [custom decorators](#yamdogdecoratorscustomdecorators) for more info on
+how decorator functions work and how to create your own decorators.
+
+- [yamdog.decorators.aliases](#yamdogdecoratorsaliases)
+- [yamdog.decorators.alphabetical](#yamdogdecoratorsalphabetical)
+- [yamdog.decorators.backTopLinks](#yamdogdecoratorsbacktoplinks)
+- [yamdog.decorators.boldKeywords](#yamdogdecoratorsboldkeywords)
+- [yamdog.decorators.boldListTitles](#yamdogdecoratorsboldlisttitles)
+- [yamdog.decorators.italicSingles](#yamdogdecoratorsitalicsingles)
+- [yamdog.decorators.linkKeywords](#yamdogdecoratorslinkkeywords)
+- [yamdog.decorators.linkNames](#yamdogdecoratorslinknames)
+- [yamdog.decorators.replace](#yamdogdecoratorsreplace)
+- [yamdog.decorators.replaceListValues](#yamdogdecoratorsreplacelistvalues)
+- [yamdog.decorators.sourceLinks](#yamdogdecoratorssourcelinks)
+- [yamdog.decorators.toc](#yamdogdecoratorstoc)
+
+
+Source: [decorators/index.js](https://github.com/axelpale/yamdog/blob/main/lib/decorators/index.js)
+
+<a name="yamdogdecoratorscustomdecorators"></a>
+## yamdog.decorators Custom Decorators
+
 Each decorator is a function that maps an array of parsed doc blocks
-to a new array of decorated doc blocks.
+to a new array of doc blocks.
+For example, [yamdog](#yamdog).decorator.alphabetical is a function that takes in
+an array of doc blocks, sorts them by their title, and outputs
+the blocks in the new order.
 
 The decorator function must be idempotent so that output of running it twice
 does not differ from running it once. The idempotency also does protect
@@ -60,20 +85,6 @@ This prevents a class of problems that would be very hard to debug.
 The decorator function is allowed to create, modify, sort, and
 remove blocks. However, the output must still be a valid array of blocks
 that can be subjected for further processing.
-
-- [yamdog.decorators.aliases](#yamdogdecoratorsaliases)
-- [yamdog.decorators.alphabetical](#yamdogdecoratorsalphabetical)
-- [yamdog.decorators.backTopLinks](#yamdogdecoratorsbackTopLinks)
-- [yamdog.decorators.boldKeywords](#yamdogdecoratorsboldKeywords)
-- [yamdog.decorators.boldListTitles](#yamdogdecoratorsboldListTitles)
-- [yamdog.decorators.italicSingles](#yamdogdecoratorsitalicSingles)
-- [yamdog.decorators.linkKeywords](#yamdogdecoratorslinkKeywords)
-- [yamdog.decorators.linkNames](#yamdogdecoratorslinkNames)
-- [yamdog.decorators.replace](#yamdogdecoratorsreplace)
-- [yamdog.decorators.replaceListValues](#yamdogdecoratorsreplaceListValues)
-- [yamdog.decorators.sourceLinks](#yamdogdecoratorssourceLinks)
-- [yamdog.decorators.toc](#yamdogdecoratorstoc)
-
 
 Source: [decorators/index.js](https://github.com/axelpale/yamdog/blob/main/lib/decorators/index.js)
 
@@ -109,7 +120,7 @@ Sort blocks in alphabetical order.
 
 Source: [alphabetical.js](https://github.com/axelpale/yamdog/blob/main/lib/decorators/alphabetical.js)
 
-<a name="yamdogdecoratorsbackTopLinks"></a>
+<a name="yamdogdecoratorsbacktoplinks"></a>
 ## yamdog.decorators.backTopLinks(opts)
 
 Extends the last block with a link back to the top of the page.
@@ -127,7 +138,7 @@ links also at every 10th block or so.
 
 Source: [backTopLinks.js](https://github.com/axelpale/yamdog/blob/main/lib/decorators/backTopLinks.js)
 
-<a name="yamdogdecoratorsboldKeywords"></a>
+<a name="yamdogdecoratorsboldkeywords"></a>
 ## yamdog.decorators.boldKeywords
 
 Bolds the given keywords with Markdown &ast;&ast;bold&ast;&ast; syntax.
@@ -141,7 +152,7 @@ Bolds the given keywords with Markdown &ast;&ast;bold&ast;&ast; syntax.
 
 Source: [boldKeywords.js](https://github.com/axelpale/yamdog/blob/main/lib/decorators/boldKeywords.js)
 
-<a name="yamdogdecoratorsboldListTitles"></a>
+<a name="yamdogdecoratorsboldlisttitles"></a>
 ## yamdog.decorators.boldListTitles
 
 Bolds the first line of all lists with
@@ -152,7 +163,7 @@ Markdown &ast;&ast;bold&ast;&ast; syntax.
 
 Source: [boldListTitles.js](https://github.com/axelpale/yamdog/blob/main/lib/decorators/boldListTitles.js)
 
-<a name="yamdogdecoratorsitalicSingles"></a>
+<a name="yamdogdecoratorsitalicsingles"></a>
 ## yamdog.decorators.italicSingles()
 
 Emphasizes list item values that contain only a single word.
@@ -160,14 +171,14 @@ This can be used to make parameter names and property names stand out.
 
 For example the list values "foobar", "fooBar", and "foo_bar"
 would be emphasized but the values "foo bar", "foo.bar", and "foo:"
-would not. See [yamdog.decorators.replaceListValues](#yamdogdecoratorsreplaceListValues) for customization.
+would not. See [yamdog.decorators.replaceListValues](#yamdogdecoratorsreplacelistvalues) for customization.
 
 **Returns:**
 - a function, a decorator function.
 
 Source: [italicSingles.js](https://github.com/axelpale/yamdog/blob/main/lib/decorators/italicSingles.js)
 
-<a name="yamdogdecoratorslinkKeywords"></a>
+<a name="yamdogdecoratorslinkkeywords"></a>
 ## yamdog.decorators.linkKeywords(keywordToUrl)
 
 Create links for keyword occurrences in text.
@@ -192,7 +203,7 @@ linkKeywords({
 
 Source: [linkKeywords.js](https://github.com/axelpale/yamdog/blob/main/lib/decorators/linkKeywords.js)
 
-<a name="yamdogdecoratorslinkNames"></a>
+<a name="yamdogdecoratorslinknames"></a>
 ## yamdog.decorators.linkNames()
 
 Easy way to create internal links for block name occurrences in text.
@@ -221,7 +232,7 @@ Skips preformatted text sections.
 
 Source: [replace.js](https://github.com/axelpale/yamdog/blob/main/lib/decorators/replace.js)
 
-<a name="yamdogdecoratorsreplaceListValues"></a>
+<a name="yamdogdecoratorsreplacelistvalues"></a>
 ## yamdog.decorators.replaceListValues
 
 Replaces all list values according to given rules.
@@ -242,7 +253,7 @@ Uses applies [String.prototype.replace](https://developer.mozilla.org/en-US/docs
 
 Source: [replaceListValues.js](https://github.com/axelpale/yamdog/blob/main/lib/decorators/replaceListValues.js)
 
-<a name="yamdogdecoratorssourceLinks"></a>
+<a name="yamdogdecoratorssourcelinks"></a>
 ## yamdog.decorators.sourceLinks(config)
 
 Creates a decorator function that extends each block
