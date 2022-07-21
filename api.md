@@ -173,6 +173,7 @@ Source: [italicSingles.js](https://github.com/axelpale/yamdog/blob/main/lib/deco
 Create links for keyword occurrences in text.
 Searches block contents for the given keywords names
 and replaces each keyword match with a link to the matching URL.
+Skips preformatted text sections.
 
 **Parameters:**
 - *keywordToUrl*
@@ -194,9 +195,10 @@ Source: [linkKeywords.js](https://github.com/axelpale/yamdog/blob/main/lib/decor
 <a name="yamdogdecoratorslinkNames"></a>
 ## yamdog.decorators.linkNames()
 
-Easy way to create links for block name occurrences in text.
+Easy way to create internal links for block name occurrences in text.
 Searches block contents for block names and replaces each match with
 a link to the block heading anchor.
+Skips preformatted text.
 
 **Returns:**
 - a function, a decorator function.
@@ -208,6 +210,7 @@ Source: [linkNames.js](https://github.com/axelpale/yamdog/blob/main/lib/decorato
 
 Replaces the given patterns in text and lists
 by using [String.prototype.replace](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace).
+Skips preformatted text sections.
 
 **Parameters:**
 - *rules*
@@ -260,7 +263,7 @@ with a paragraph that contains a link to the source code.
 
 Example
 ```
-decor.sourceLinks({
+yamdog.decorators.sourceLinks({
   basePath: path.resolve(__dirname, '..'),
   baseUrl: 'https://github.com/axelpale/yamdog/blob/main/'
 }),
