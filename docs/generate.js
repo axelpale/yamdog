@@ -3,6 +3,9 @@
 const yamdog = require('../index')
 const path = require('path')
 const version = require('../package.json').version
+const githubUrl = 'https://' +
+  'github.com/axelpale/yamdog/' +
+  'blob/main/docs/generate.js'
 
 yamdog.generate({
   entry: path.resolve(__dirname, '../index.js'),
@@ -10,7 +13,8 @@ yamdog.generate({
   earmark: 'yamdog',
   title: 'Yamdog API Docs',
   intro: 'Welcome to Yamdog v' + version + ' API documentation. ' +
-    'This document is generated with Yamdog itself, of course.',
+    'This document is generated with Yamdog itself, of course. ' +
+    'See [docs/generate.js](' + githubUrl + ') for the recipe.',
   decorators: [
     yamdog.decorators.alphabetical(),
     yamdog.decorators.replace([
