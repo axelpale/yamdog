@@ -1,7 +1,7 @@
 <a name="top"></a>
 # Yamdog API Docs
 
-Welcome to Yamdog v1.3.1 API documentation. This document is generated with Yamdog itself, of course.
+Welcome to Yamdog v1.3.1 API documentation. This document is generated with Yamdog itself, of course. See [docs/generate.js](https://github.com/axelpale/yamdog/blob/main/docs/generate.js) for the recipe.
 
 
 <a name="yamdog"></a>
@@ -179,7 +179,7 @@ Skips preformatted text sections.
 - *keywordToUrl*
   - an object where keys are keywords and values are URLs.
 
-Example:
+**Example:**
 ```
 linkKeywords({
   'point2d': 'geometry/point2d.html',
@@ -261,7 +261,7 @@ with a paragraph that contains a link to the source code.
 **Returns:**
 - a function, a decorator function.
 
-Example
+**Example:**
 ```
 yamdog.decorators.sourceLinks({
   basePath: path.resolve(__dirname, '..'),

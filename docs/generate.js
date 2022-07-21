@@ -19,13 +19,20 @@ yamdog.generate({
     yamdog.decorators.alphabetical(),
     yamdog.decorators.replace([
       {
+        // Normalize and style the parameters title.
         pattern: /^param(?:eter)?s?:?/i,
         replacement: '**Parameters:**'
       },
       {
+        // Normalize and style the return titles.
         pattern: /^returns?:?/i,
         replacement: '**Returns:**'
-      }
+      },
+      {
+        // Normalize and style the example titles.
+        pattern: /^example:?/i,
+        replacement: '**Example:**'
+      },
     ]),
     yamdog.decorators.italicSingles(),
     yamdog.decorators.aliases(),
