@@ -3,9 +3,6 @@
 const yamdog = require('../index')
 const path = require('path')
 const version = require('../package.json').version
-const githubUrl = 'https://' +
-  'github.com/axelpale/yamdog/' +
-  'blob/main/docs/generate.js'
 
 yamdog.generate({
   entry: path.resolve(__dirname, '../index.js'),
@@ -14,9 +11,12 @@ yamdog.generate({
   title: 'Yamdog API Docs',
   intro: 'Welcome to Yamdog v' + version + ' API documentation. ' +
     'This document is generated with Yamdog itself, of course. ' +
-    'See [docs/generate.js](' + githubUrl + ') for the recipe.',
+    'See [docs/generate.js](https://github.com/axelpale/yamdog/' +
+    'blob/main/docs/generate.js) for the recipe.',
   decorators: [
+    // This decorator orders the blocks alphabetically.
     yamdog.decorators.alphabetical(),
+    // Replace strings with Regular Expressions
     yamdog.decorators.replace([
       {
         // Normalize and style the parameters title.
@@ -34,19 +34,26 @@ yamdog.generate({
         replacement: '**Example:**'
       },
     ]),
+    // Emphasize list items that have only single word.
     yamdog.decorators.italicSingles(),
+    // Create alias blocks when a block has multiple names.
     yamdog.decorators.aliases(),
+    // Add internal links to names from occurrences in text.
     yamdog.decorators.linkNames(),
+    // Convert keywords to links
     yamdog.decorators.linkKeywords({
       'String.prototype.replace':
         'https://developer.mozilla.org/en-US/docs/Web/' +
         'JavaScript/Reference/Global_Objects/String/replace'
     }),
+    // Render table of contents to blocks
     yamdog.decorators.toc(),
+    // Extend every block with a link to its source code.
     yamdog.decorators.sourceLinks({
       basePath: path.resolve(__dirname, '..'),
       baseUrl: 'https://github.com/axelpale/yamdog/blob/main/'
     }),
+    // Add a back-top link at the bottom block.
     yamdog.decorators.backTopLinks(),
   ]
 })
