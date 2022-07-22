@@ -286,10 +286,17 @@ Source: [sourceLinks.js](https://github.com/axelpale/yamdog/blob/main/lib/decora
 ## yamdog.decorators.toc(config)
 
 Create and insert table of contents for each module that has child blocks.
+The parent-child relationships are determined by the block names.
+For example the block "yamdog.decorators" is a child of block "yamdog",
+and the block "yamdog.decorators.toc" is a child of "yamdog.decorators".
+However, "yamdogbone" would **not** be a child of "yamdog" because of
+the missing separator. Allowed separator characters are `- .:#/`.
 
 **Parameters:**
 - *config*
-  - *object*
+  - optional object with properties:
+    - *depth*
+      - optional integer, the depth per table. Default 1.
 
 **Returns:**
 - a function, a decorator function.
