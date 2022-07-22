@@ -100,18 +100,31 @@ A *comment block* is a set of adjacent lines of `//` comments.
     // that has some text
     some = code
 
-To *earmark* a comment block to be included to your docs, begin the block with a line that contains `// name.of.this.module`. The earmark line also presents how to access and call the documented feature.
+To *earmark* a comment block to be included in your docs, begin the block with a line that contains `// name.of.this.module`. The earmark line also presents the *name* of the block and how to access and call the documented feature.
 
     // name.of.this.module
     // This comment block will be included
     // to the docs with a title "name.of.this.module"
     some = code
 
-To exclude a line in an earmarked comment block, use triple slash `///`.
+A block can have multiple names. This way you can document aliases for features. Use [aliases decorator](https://axelpale.github.io/yamdog/api#yamdogdecoratorsaliases) to show the alternative names in the docs output.
+
+    // name.of.this.module
+    // name.of.this.book
+    // This block has two names. The first one is the primary one.
+    some = code
+
+To skip a line in an earmarked comment block, use triple slash `///`.
 
     // name.of.this.module
     // This line of text is visible in docs.
     /// This line of text is not in docs.
+    some = code
+
+To skip the whole earmarked comment block, use triple slash on the earmark line.
+
+    /// name.of.this.module
+    // This block will not be present in the docs.
     some = code
 
 Indent with space `' '` or dash `'-'` to create lists.
