@@ -1,6 +1,6 @@
 # yamdog
 
-![Yamdog logo](docs/yamdog_logo.png)
+![Yamdog logo](docs/yamdog_logo_dark.png)
 
 [![npm version](https://img.shields.io/npm/v/yamdog?color=green)](https://www.npmjs.com/package/yamdog)
 [![license](https://img.shields.io/npm/l/yamdog)](#license)
