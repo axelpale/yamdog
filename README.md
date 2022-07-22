@@ -198,6 +198,16 @@ Test generate Yamdog's docs:
     $ npm run build:docs
 
 
+## See also
+
+Yamdog is not the only dog in the block. There are other awesome documentation tools out there that might fit your household better, including:
+
+- [JSDoc](https://jsdoc.app/) - The biggest and baddest of the pack.
+- [Dox](https://github.com/tj/dox) - Comment parser that combines JSDoc and Markdown.
+- [Markdox](https://github.com/cbou/markdox) - Document generator using the Dox parser.
+- [Docco](https://github.com/jashkenas/docco) - Docs with the source code literally included.
+
+
 ## Versioning
 
 We use [Semantic Versioning 2.0.0](http://semver.org/)
