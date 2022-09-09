@@ -16,7 +16,8 @@ yamdog.generate({
     'blob/main/docs/generate.js) for the recipe.',
   decorators: [
     // This decorator orders the blocks alphabetically.
-    decor.alphabetical(),
+    // Comment out if you want to preserve the order in code.
+    //// decor.alphabetical(),
     // Replace strings with Regular Expressions
     decor.replace([
       {
