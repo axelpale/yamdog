@@ -1,6 +1,6 @@
 # yamdog
 
-![Yamdog logo](docs/yamdog_logo.png)
+![Yamdog logo](docs/yamdog_logo_dark.png)
 
 [![npm version](https://img.shields.io/npm/v/yamdog?color=green)](https://www.npmjs.com/package/yamdog)
 [![license](https://img.shields.io/npm/l/yamdog)](#license)
@@ -100,34 +100,50 @@ A *comment block* is a set of adjacent lines of `//` comments.
     // that has some text
     some = code
 
-To *earmark* a comment block to be included to your docs, begin the block with a line that contains `// name.of.this.module`. The earmark line also presents how to access and call the documented feature.
+To *earmark* a comment block to be included in your docs, begin the block with an earmark string, for example the name of your package. The earmark and the rest of the line define the *name* of the block and usually present how to access or call the documented feature. For example, let our earmark be `doghouse`:
 
-    // name.of.this.module
+    // doghouse.toys.fetch(toyname)
     // This comment block will be included
-    // to the docs with a title "name.of.this.module"
+    // to the docs with a name "doghouse.toys.fetch"
+    // and with a heading "doghouse.toys.fetch(toyname)".
     some = code
 
-To exclude a line in an earmarked comment block, use triple slash `///`.
+A block can have *multiple names*. This way you can document aliases for features. Use [aliases decorator](https://axelpale.github.io/yamdog/api#yamdogdecoratorsaliases) to render the alternative names in the docs output.
 
-    // name.of.this.module
+    // doghouse.toys.fetch
+    // doghouse.toys.get
+    // This block has two names. The first one is the primary one.
+    some = code
+
+To skip a line in a block, use triple slash `///`.
+
+    // doghouse.toys.fetch
     // This line of text is visible in docs.
     /// This line of text is not in docs.
     some = code
 
-Indent with space `' '` or dash `'-'` to create lists.
+To skip the whole block, use triple slash on the earmark line.
 
-    // name.of.this.module(x, y)
+    /// doghouse.toys.legacy
+    // This block will not be present in the docs.
+    some = code
+
+Indent with space `' '` or dash `'-'` to create lists. You can use any indentation size you like, for example four spaces instead of two.
+
+    // doghouse.walkTo(x, y)
     //
     // Parameters
     //   x
-    //     list item with some text, for example
+    //     first sublist item
+    //     second sublist item
+    //     - sub-sublist item with a dash
     //   y
-    //     a number. Vertical coordinate.
+    //     a number. A distance from the door.
     //
 
 To write multi-line list items, prefix each new line with a double or triple dot `..`. Otherwise the new line becomes a new list item.
 
-    // name.of.this.module
+    // doghouse.foods
     //
     // list title
     //   first list item
@@ -155,15 +171,14 @@ In your project, create a file `docs/generate.js` with contents similar to:
       // Where to generate
       output: path.resolve(__dirname, 'API.md'),
       // Earmark; include comment blocks that begin with this string
-      earmark: 'mylib',
+      earmark: 'doghouse',
       // Main title of the document
-      title: 'Mylib API Documentation',
+      title: 'Doghouse API Documentation',
       // Introduction; the initial paragraph
-      intro: 'Welcome to mylib API documentation.',
-      // Decorators; a customizable palette of features to pimp yo docs
+      intro: 'Welcome to Doghouse API documentation.',
+      // Decorators; a customizable features to pimp yo docs
       decorators: [
         yamdog.decorators.alphabetical(), // render in alphabetical order
-        yamdog.decorators.linkNames(), // convert name patterns to links
         yamdog.decorators.toc() // insert tables of contents
       ]
     })
@@ -196,6 +211,16 @@ Run code linter:
 Test generate Yamdog's docs:
 
     $ npm run build:docs
+
+
+## See also
+
+Yamdog is not the only dog in the block. There are other awesome documentation tools out there that might fit your household better, including:
+
+- [JSDoc](https://jsdoc.app/) - The biggest and baddest of the pack.
+- [Dox](https://github.com/tj/dox) - Comment parser that combines JSDoc and Markdown.
+- [Markdox](https://github.com/cbou/markdox) - Document generator using the Dox parser.
+- [Docco](https://github.com/jashkenas/docco) - Docs with the source code literally included.
 
 
 ## Versioning
