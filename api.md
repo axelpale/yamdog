@@ -3,6 +3,8 @@
 
 Welcome to Yamdog v1.4.0 API documentation. This document is generated with Yamdog itself, of course. See [docs/generate.js](https://github.com/axelpale/yamdog/blob/main/docs/generate.js) for the recipe.
 
+![Two bones](docs/yamdog_two_bones.png)
+
 
 <a name="yamdog"></a>
 ## [yamdog](#yamdog)
@@ -370,6 +372,10 @@ A parsed doc block object has properties:
   - array of alias objects { hash, name, signature }. Navigational data about blocks that are aliases of this block.
 - *paragraphs*
   - array of paragraph objects { type, body }
+
+If a module file is not found, it will be skipped without error.
+
+![Ball Skipping](docs/yamdog_boink_ball.png)
 
 Aliases: [yamdog.stringify](#yamdogstringify)
 

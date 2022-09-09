@@ -13,7 +13,8 @@ yamdog.generate({
   intro: 'Welcome to Yamdog v' + version + ' API documentation. ' +
     'This document is generated with Yamdog itself, of course. ' +
     'See [docs/generate.js](https://github.com/axelpale/yamdog/' +
-    'blob/main/docs/generate.js) for the recipe.',
+    'blob/main/docs/generate.js) for the recipe.\n\n' +
+    '![Two bones](docs/yamdog_two_bones.png)',
   decorators: [
     // This decorator orders the blocks alphabetically.
     // Comment out if you want to preserve the order in code.
