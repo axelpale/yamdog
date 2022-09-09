@@ -17,7 +17,7 @@ yamdog.generate({
   decorators: [
     // This decorator orders the blocks alphabetically.
     // Comment out if you want to preserve the order in code.
-    //// decor.alphabetical(),
+    decor.alphabetical(),
     // Replace strings with Regular Expressions
     decor.replace([
       {
