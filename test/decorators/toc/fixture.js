@@ -25,3 +25,13 @@
 //
 // A block for doggos.
 //
+
+// testdog.test.DOGGO
+//
+// A block with upper case name.
+// Should be ordered before lower case names in toc when
+// alphabetical decorator is used.
+//
+
+// testdog.test.Doggo
+// A block with CamelCase name.

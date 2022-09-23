@@ -8,6 +8,9 @@ yamdog.generate({
   title: 'Test document title',
   intro: 'Test document intro.',
   decorators: [
+    yamdog.decorators.alphabetical({
+      groupCase: true
+    }),
     yamdog.decorators.toc({
       title: 'Contents:'
     })
