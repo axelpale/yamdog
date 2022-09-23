@@ -12,6 +12,7 @@ Welcome to Yamdog v1.4.0 API documentation. This document is generated with Yamd
 The module provides following tools for parsing, decorating, and rendering
 YAML and Markdown flavoured API documentation from source code comments.
 
+
 - [yamdog.decorate](#yamdogdecorate)
 - [yamdog.decorators](#yamdogdecorators)
 - [yamdog.generate](#yamdoggenerate)
@@ -48,6 +49,7 @@ The default docs output is a bit dull.
 With decorators you can style the document in various ways.
 See [custom decorators](#yamdogdecoratorsaboutcustomdecorators) for more info on
 how decorator functions work and how to create your own decorators.
+
 
 - [yamdog.decorators.aliases](#yamdogdecoratorsaliases)
 - [yamdog.decorators.alphabetical](#yamdogdecoratorsalphabetical)
@@ -115,7 +117,14 @@ Sort blocks in alphabetical order.
 
 **Parameters:**
 - *opts*
-  - *object*
+  - optional object with properties:
+    - *locales*
+      - optional string or array that defines the locale for the order.
+      - The available values are documented in [Intl.Collator]( https://developer.mozilla.org/en-US/docs/Web/JavaScript/ Reference/Global_Objects/Intl/Collator).
+      - Default is `undefined` which selects the local default locale.
+    - *groupCase*
+      - optional boolean. Set true to group block names in the order: UPPER, Camel, and lower. In other words, upper case names like constants come first, then names with the first letter capitalized, like class names, and finally the names in lower case, such as methods and properties.
+      - Default is `false`. Note that the default might flip in the next major release.
 
 **Returns:**
 - a function, a decorator function.
@@ -297,6 +306,9 @@ the missing separator. Allowed separator characters are `- .:#/`.
 **Parameters:**
 - *config*
   - optional object with properties:
+    - *title*
+      - optional string, the line before the ToC list.
+      - Default is '' meaning that no titles are rendered before lists.
     - *depth*
       - optional integer, the depth per table. Default 1.
 
