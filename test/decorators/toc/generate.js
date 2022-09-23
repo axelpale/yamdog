@@ -8,6 +8,8 @@ yamdog.generate({
   title: 'Test document title',
   intro: 'Test document intro.',
   decorators: [
-    yamdog.decorators.toc()
+    yamdog.decorators.toc({
+      title: 'Contents:'
+    })
   ]
 })
