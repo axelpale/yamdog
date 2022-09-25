@@ -333,6 +333,8 @@ in this order.
       - string, an absolute path to the target file to generate. For example '/home/xeli/projects/yamdog/API.md'.
     - *earmark*
       - string, the earmark signature to look for in the comment blocks to include to the documentation. The earmark is usually the module name like `mylib`. It does not need to match the real package name but it must match the signature used in the comments.
+      - OR an array of strings, for multiple alternative earmarks.
+      - OR an object of strings, for multiple alternative earmarks with their full names. This becomes handy if you feel it tedious to write the full sequence of namespaces in your signatures like `foo.bar.baz.biz()` instead of `baz.biz()`. By setting earmark { baz: 'foo.bar.baz', ... } you still ensure that `baz.biz()` is treated and positioned in the doc as the full name would.
     - *title*
       - optional string, the document title and main heading. Default is `'API Documentation'`.
     - *intro*
@@ -352,7 +354,9 @@ Parse doc block objects from code.
 **Parameters:**
 - *mod*
   - *earmark*
-    - string, the earmark signature, for example the module name. Comment blocks that begin with this signature will be included.
+    - a string, the earmark signature, for example the module name. Comment blocks that begin with this signature will be included.
+    - OR an array of strings, to specify multiple valid earmarks.
+    - OR an object of strings, to specify multiple valid earmarks as keys and their extended full names as values.
   - *path*
     - string, absolute directory or file path to the module
 
@@ -363,7 +367,7 @@ A parsed doc block object has properties:
 - *file*
   - string, the absolute file path that contains the block.
 - *signature*
-  - string, the call signature e.g. 'mylib.myfun(param)'
+  - string, the call signature e.g. 'mylib.myfun(param)'. The signature is equivalent to shortName + postfix. Signatures are especially used in headings.
 - *name*
   - string, the unit name derived from the call signature. e.g. 'mylib.myfun'
 - *postfix*
@@ -371,17 +375,19 @@ A parsed doc block object has properties:
 - *nameParts*
   - array of objects with properties:
     - *label*
-      - string, the part short name e.g. 'myfun'
+      - string, the part single name e.g. 'myfun'
     - *name*
-      - string, the full name e.g. 'mylib.myfun'
+      - string, the full name of the part e.g. 'mylib.myfun'
     - *hash*
-      - string, the nav hash for the full name e.g. 'mylibmyfun'
+      - string, the nav hash for the part full name e.g. 'mylibmyfun'
     - *prefix*
       - string, the separator character found before the label e.g. '.'
+- *shortName*
+  - a string, the original name of the block before possible name extensions caused by earmark name mapping.
 - *hash*
   - string, an URL friendly hash derived from the name e.g. 'mylibmyfun'
 - *aliases*
-  - array of alias objects { hash, name, signature }. Navigational data about blocks that are aliases of this block.
+  - array of alias objects `{ hash, name, postfix, nameParts, shortName, signature }` containing navigational data about blocks that are aliases of this block.
 - *paragraphs*
   - array of paragraph objects { type, body }
 
