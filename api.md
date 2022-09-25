@@ -1,7 +1,7 @@
 <a name="top"></a>
 # Yamdog API Docs
 
-Welcome to Yamdog v1.4.0 API documentation. This document is generated with Yamdog itself, of course. See [docs/generate.js](https://github.com/axelpale/yamdog/blob/main/docs/generate.js) for the recipe.
+Welcome to Yamdog v1.5.0 API documentation. This document is generated with Yamdog itself, of course. See [docs/generate.js](https://github.com/axelpale/yamdog/blob/main/docs/generate.js) for the recipe.
 
 ![Two bones](docs/yamdog_two_bones.png)
 
