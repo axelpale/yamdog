@@ -8,7 +8,10 @@ const decor = yamdog.decorators
 yamdog.generate({
   entry: path.resolve(__dirname, '../index.js'),
   output: path.resolve(__dirname, '..', 'api.md'),
-  earmark: 'yamdog',
+  earmark: {
+    yamdog: 'yamdog',
+    decorators: 'yamdog.decorators'
+  },
   title: 'Yamdog API Docs',
   intro: 'Welcome to Yamdog v' + version + ' API documentation. ' +
     'This document is generated with Yamdog itself, of course. ' +
@@ -50,7 +53,9 @@ yamdog.generate({
         'JavaScript/Reference/Global_Objects/String/replace'
     }),
     // Render table of contents to blocks
-    decor.toc(),
+    decor.toc({
+      title: '<strong>Contents:</strong>'
+    }),
     // Extend every block with a link to its source code.
     decor.sourceLinks({
       basePath: path.resolve(__dirname, '..'),
