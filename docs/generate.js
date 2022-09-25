@@ -8,7 +8,10 @@ const decor = yamdog.decorators
 yamdog.generate({
   entry: path.resolve(__dirname, '../index.js'),
   output: path.resolve(__dirname, '..', 'api.md'),
-  earmark: 'yamdog',
+  earmark: {
+    yamdog: 'yamdog',
+    decorators: 'yamdog.decorators'
+  },
   title: 'Yamdog API Docs',
   intro: 'Welcome to Yamdog v' + version + ' API documentation. ' +
     'This document is generated with Yamdog itself, of course. ' +
