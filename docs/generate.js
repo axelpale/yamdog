@@ -53,7 +53,9 @@ yamdog.generate({
         'JavaScript/Reference/Global_Objects/String/replace'
     }),
     // Render table of contents to blocks
-    decor.toc(),
+    decor.toc({
+      title: '<strong>Contents:</strong>'
+    }),
     // Extend every block with a link to its source code.
     decor.sourceLinks({
       basePath: path.resolve(__dirname, '..'),
