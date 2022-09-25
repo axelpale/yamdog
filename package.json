@@ -33,7 +33,7 @@
     "build:docs": "node docs/generate.js",
     "lint": "standard 'lib/**/*.js' && echo 'OK'",
     "test": "npm run lint",
-    "release": "npm run test && npm publish"
+    "release": "npm run test && npm run build:docs && npm publish"
   },
   "dependencies": {
     "marked": "^4.1.0"
