@@ -34,3 +34,10 @@
 //   testdog.test.doublehash
 //   testdog.test.excluded
 //
+
+// test.shortname
+//
+// This shortname should be mapped to full name.
+//
+// Also, linkNames decorator should link: test.shortname
+//
