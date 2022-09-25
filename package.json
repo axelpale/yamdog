@@ -35,5 +35,7 @@
     "test": "npm run lint",
     "release": "npm run test && npm publish"
   },
-  "dependencies": {}
+  "dependencies": {
+    "marked": "^4.1.0"
+  }
 }
