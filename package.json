@@ -36,6 +36,6 @@
     "release": "npm run test && npm run build:docs && npm publish"
   },
   "dependencies": {
-    "marked": "^4.1.0"
+    "marked": "^4.2.3"
   }
 }
