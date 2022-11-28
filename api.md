@@ -1,7 +1,7 @@
 <a name="top"></a>
 # Yamdog API Docs
 
-Welcome to Yamdog v1.5.0 API documentation. This document is generated with Yamdog itself, of course. See [docs/generate.js](https://github.com/axelpale/yamdog/blob/main/docs/generate.js) for the recipe.
+Welcome to Yamdog v1.6.0 API documentation. This document is generated with Yamdog itself, of course. See [docs/generate.js](https://github.com/axelpale/yamdog/blob/main/docs/generate.js) for the recipe.
 
 ![Two bones](docs/yamdog_two_bones.png)
 
@@ -115,9 +115,9 @@ Creates a decorator function that appends paragraphs for aliases.
 - *opts*
   - optional object with props:
     - *aliasesLabel*
-      - optional string, default 'Aliases: '. For the primary unit.
+      - optional string, default 'Aliases: '. The label to use in the primary output block. The label is followed by a list of alias links.
     - *aliasOfLabel*
-      - optional string, default 'Alias of '. For the alias-only units.
+      - optional string, default 'Alias of '. The label to use in the alias blocks. The label is followed by a link to the primary.
 
 
 <p style="margin-bottom: 0"><strong>Returns:</strong></p>
