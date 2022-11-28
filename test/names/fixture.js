@@ -21,6 +21,12 @@
 // by none to many spaces.
 //
 
+// @testdog.test.atsign
+//
+// The signature can begin with at-sign. It will not be included into
+// the name.
+//
+
 /// testdog.test.excluded
 //
 // Three slashes on the signature line should be enough to disable
