@@ -108,12 +108,18 @@ To *earmark* a comment block to be included in your docs, begin the block with a
     // and with a heading "doghouse.toys.fetch(toyname)".
     some = code
 
-A block can have *multiple names*. This way you can document aliases for features. Use [aliases decorator](https://axelpale.github.io/yamdog/api#yamdogdecoratorsaliases) to render the alternative names in the docs output.
+A block can have *multiple names*. This way you can document aliases for features. Use [aliases decorator](https://axelpale.github.io/yamdog/api#yamdogdecoratorsaliases) to list these alternative names in the docs output.
 
     // doghouse.toys.fetch
     // doghouse.toys.get
     // This block has two names. The first one is the primary one.
     some = code
+
+To make the names stand out in your code, you can prefix them with hash `#` or at-sign `@`. This is purely optional and have no effect in the docs output.
+
+    // @doghouse.toys.fetch
+    // This block has a prefixed name
+    // that is easy to spot in the code.
 
 To skip a line in a block, use triple slash `///`.
 
