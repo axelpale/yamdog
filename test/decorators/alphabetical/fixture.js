@@ -27,3 +27,13 @@
 //
 // A child block.
 //
+
+// testdog.test1.Kennel
+//
+// A child block in CamelCase.
+//
+
+// testdog.test1.KENNEL
+//
+// A child block in UPPERCASE.
+//
