@@ -25,7 +25,7 @@ Via [npm](https://www.npmjs.com/package/yamdog) or [yarn](https://yarnpkg.com/en
 Here is a function documented in Yamdog syntax:
 
     exports.myfun = (foo, options) => {
-      // mylib.myfun(foo, [options])
+      // @mylib.myfun(foo, [options])
       //
       // My function with some general documentation at
       // the beginning.
@@ -100,9 +100,9 @@ A *comment block* is a set of adjacent lines of `//` comments.
     // that has some text
     some = code
 
-To *earmark* a comment block to be included in your docs, begin the block with an earmark string, for example the name of your package. The earmark and the rest of the line define the *name* of the block and usually present how to access or call the documented feature. For example, let our earmark be `doghouse`:
+To *earmark* a comment block to be included in your docs, begin the block with an earmark string, being `@` by default. The rest of the line define the *name* of the block and may present how to access or call the documented feature. For example, the name of this block is `doghouse.toys.fetch` and the call signature `(toyname)`:
 
-    // doghouse.toys.fetch(toyname)
+    // @doghouse.toys.fetch(toyname)
     // This comment block will be included
     // to the docs with a name "doghouse.toys.fetch"
     // and with a heading "doghouse.toys.fetch(toyname)".
@@ -110,33 +110,33 @@ To *earmark* a comment block to be included in your docs, begin the block with a
 
 A block can have *multiple names*. This way you can document aliases for features. Use [aliases decorator](https://axelpale.github.io/yamdog/api#yamdogdecoratorsaliases) to list these alternative names in the docs output.
 
-    // doghouse.toys.fetch
-    // doghouse.toys.get
+    // @doghouse.toys.fetch
+    // @doghouse.toys.get
     // This block has two names. The first one is the primary one.
     some = code
 
-To make the names stand out in your code, you can prefix them with hash `#` or at-sign `@`. This is purely optional and have no effect in the docs output.
+To make the names stand out in your code, you can use alternative earmarks, for example `### `. The choice is purely optional and have no effect in the docs output.
 
-    // @doghouse.toys.fetch
+    // ### doghouse.toys.fetch
     // This block has a prefixed name
     // that is easy to spot in the code.
 
 To skip a line in a block, use triple slash `///`.
 
-    // doghouse.toys.fetch
+    // @doghouse.toys.fetch
     // This line of text is visible in docs.
     /// This line of text is not in docs.
     some = code
 
 To skip the whole block, use triple slash on the earmark line.
 
-    /// doghouse.toys.legacy
+    /// @doghouse.toys.legacy
     // This block will not be present in the docs.
     some = code
 
 Indent with space `' '` or dash `'-'` to create lists. You can use any indentation size you like, for example four spaces instead of two.
 
-    // doghouse.walkTo(x, y)
+    // @doghouse.walkTo(x, y)
     //
     // Parameters
     //   x
@@ -149,7 +149,7 @@ Indent with space `' '` or dash `'-'` to create lists. You can use any indentati
 
 To write multi-line list items, prefix each new line with a double or triple dot `..`. Otherwise the new line becomes a new list item.
 
-    // doghouse.foods
+    // @doghouse.foods
     //
     // list title
     //   first list item
