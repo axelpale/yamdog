@@ -165,9 +165,7 @@ To write multi-line list items, prefix each new line with a double or triple dot
 
 ## Usage
 
-Here we cover the basic usage. See [yamdog API docs](https://axelpale.github.io/yamdog/api) for details, generated with yamdog itself, of course.
-
-In your project, create a file `docs/generate.js` with contents similar to:
+To integrate yamdog to your coding project, create a file `docs/generate.js` or similar. The file is the generator program for your document and a way for you to configure the structure and content.
 
     const yamdog = require('yamdog')
     const path = require('path')
@@ -189,11 +187,17 @@ In your project, create a file `docs/generate.js` with contents similar to:
       ]
     })
 
-Then you can run it with Node and find your freshly baked docs at `docs/API.md`.
+After creating the generator, run it with Node. It will scrape your code and output a document.
 
     $ node docs/generate.js
 
-Integrate to your `$ npm run` workflow with the script to your package.json:
+Depending on your `output` path, you can now find the freshly baked docs at `docs/API.md`.
+
+    $ cat docs/API.md
+    # Doghouse API Documentation
+    ...
+
+Integrate the docs generation into your `$ npm run` workflow by adding the following script to your package.json. To integrate with Gulp, Grunt, Webpack etc. use the [JS API](https://axelpale.github.io/yamdog/api).
 
     scripts: {
       ...
@@ -203,7 +207,7 @@ Integrate to your `$ npm run` workflow with the script to your package.json:
 
 Naturally you can choose any directory and file names you like. Some prefer `docs/`, others `doc/`, and some even the project root. Suit to your purpose.
 
-See [API documentation](https://axelpale.github.io/yamdog/api) for details.
+See [API documentation](https://axelpale.github.io/yamdog/api) for details, generated with yamdog itself, of course.
 
 
 ## Contribute
