@@ -23,7 +23,6 @@ A child block of testdog.
 
 <p style="margin-bottom: 0">A list immediately before toc:</p>
 
-
 - should not be merged
 - to the toc list
 

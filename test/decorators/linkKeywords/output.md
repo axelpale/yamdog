@@ -28,7 +28,6 @@ The decorator should prevent duplicate markup.
 
 <p style="margin-bottom: 0">Ensure normal links to names work as expected.</p>
 
-
 - [testdog.test](#testdogtest)
 - [testdog.test.links](#testdogtestlinks)
 - [testdog.test.doghouse](#testdogtestdoghouse)

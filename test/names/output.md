@@ -37,7 +37,6 @@ the name.
 
 <p style="margin-bottom: 0">Ensure links to various name syntaxes work as expected.</p>
 
-
 - [testdog.test](#testdogtest).hash
 - [testdog.test.doublehash](#testdogtestdoublehash)
 - [testdog.test](#testdogtest).excluded
