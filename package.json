@@ -33,6 +33,7 @@
     "build:docs": "node docs/generate.js",
     "lint": "standard 'lib/**/*.js' && echo 'OK'",
     "test": "npm run lint",
+    "test:generate": "node test/generate.js",
     "release": "npm run test && npm run build:docs && npm publish"
   },
   "dependencies": {
