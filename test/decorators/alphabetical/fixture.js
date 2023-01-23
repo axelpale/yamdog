@@ -37,3 +37,8 @@
 //
 // A child block in UPPERCASE.
 //
+
+// @testdog.test0.KENNEL
+//
+// Another block that has same uppercase property.
+//

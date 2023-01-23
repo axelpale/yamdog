@@ -14,6 +14,11 @@ Test how yamdog orders the blocks.
 
 A child block of testdog.
 
+<a name="testdogtest0kennel"></a>
+## [testdog](#testdog).[test0](#testdogtest0).[KENNEL](#testdogtest0kennel)
+
+Another block that has same uppercase property.
+
 <a name="testdogtest0doghouse"></a>
 ## [testdog](#testdog).[test0](#testdogtest0).[doghouse](#testdogtest0doghouse)
 
