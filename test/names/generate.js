@@ -6,7 +6,7 @@ const path = require('path')
 yamdog.generate({
   entry: path.resolve(__dirname, 'fixture.js'),
   output: path.resolve(__dirname, '..', 'output.md'),
-  earmark: {
+  names: {
     'testdog': 'testdog',
     'test': 'testdog.test'
   },
