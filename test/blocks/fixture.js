@@ -24,6 +24,11 @@
 //
 // Allow empty lines at the beginning.
 
+// Just some comment.
+// @@testdog.skip
+//
+// Skip comment blocks that begin with non-signature content.
+
 // @@testdog.longtail
 //
 // Allow multiple empty lines at the end.
