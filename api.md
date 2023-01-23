@@ -1,7 +1,7 @@
 <a name="top"></a>
 # Yamdog API Docs
 
-Welcome to Yamdog v1.6.0 API documentation. This document is generated with Yamdog itself, of course. See [docs/generate.js](https://github.com/axelpale/yamdog/blob/main/docs/generate.js) for the recipe.
+Welcome to Yamdog v2.0.0-alpha API documentation. This document is generated with Yamdog itself, of course. See [docs/generate.js](https://github.com/axelpale/yamdog/blob/main/docs/generate.js) for the recipe.
 
 ![Two bones](docs/yamdog_two_bones.png)
 
@@ -409,9 +409,10 @@ in this order.
     - *output*
       - string, an absolute path to the target file to generate. For example '/home/xeli/projects/yamdog/API.md'.
     - *earmark*
-      - string, the earmark signature to look for in the comment blocks to include to the documentation. The earmark is usually the module name like `mylib`. It does not need to match the real package name but it must match the signature used in the comments.
-      - OR an array of strings, for multiple alternative earmarks.
-      - OR an object of strings, for multiple alternative earmarks with their full names. This becomes handy if you feel it tedious to write the full sequence of namespaces in your signatures like `foo.bar.baz.biz()` instead of `baz.biz()`. By setting earmark { baz: 'foo.bar.baz', ... } you still ensure that `baz.biz()` is treated and positioned in the doc as the full name would.
+      - optional string, default is `@`. The earmark prefix to look for in the beginning of comment blocks. The matching blocks will be included to the docs. The rest of the line becomes the name of the doc block. The earmark is usually a character like `#` or `@` but can be longer.
+    - *names*
+      - optional array of string. Specifies a filter to include only the doc blocks with the name that begins with one of the names in the array.
+      - optional object of strings. Specifies a filter and a mapping from allowed names to their full names. This becomes handy if you feel it tedious to write long sequences of namespaces in your names like `foo.bar.baz.biz()` instead of `baz.biz()`. By setting names { baz: 'foo.bar.baz', ... } you still ensure that `baz.biz()` is treated and positioned in the doc as the full name would.
     - *title*
       - optional string, the document title and main heading. Default is `'API Documentation'`.
     - *intro*
@@ -434,9 +435,10 @@ Parse doc block objects from code.
 
 - *mod*
   - *earmark*
-    - a string, the earmark signature, for example the module name. Comment blocks that begin with this signature will be included.
-    - OR an array of strings, to specify multiple valid earmarks.
-    - OR an object of strings, to specify multiple valid earmarks as keys and their extended full names as values.
+    - a string, the earmark prefix, for example `@`. Comment blocks that begin with this prefix will be included.
+  - *names*
+    - an array of strings, to specify valid names. The comment block that has a name that begins with one of the names in the array, will be included.
+    - an object of strings, to specify multiple valid names as keys and their extended full names as values.
   - *path*
     - string, absolute directory or file path to the module
 
