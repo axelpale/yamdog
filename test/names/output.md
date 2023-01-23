@@ -15,6 +15,11 @@ this test fixture.
 
 A child block of [testdog](#testdog).
 
+<a name="testdogtest"></a>
+## [testdog](#testdog).[test](#testdogtest)
+
+A duplicate name
+
 <a name="testdogtestdoublehash"></a>
 ## [testdog](#testdog).[test](#testdogtest).[doublehash](#testdogtestdoublehash)
 

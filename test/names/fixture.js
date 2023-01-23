@@ -9,6 +9,10 @@
 // A child block of testdog.
 //
 
+// @testdog.test
+//
+// A duplicate name
+
 // @testdog.test.doublehash
 //
 // The signature line is also allowed to have double hash followed
