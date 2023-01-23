@@ -5,7 +5,7 @@ const path = require('path')
 
 yamdog.generate({
   entry: path.resolve(__dirname, 'fixture.js'),
-  output: path.resolve(__dirname, '..', 'output.md'),
+  output: path.resolve(__dirname, 'output.md'),
   title: 'Test document title',
   intro: 'Test document intro.'
 })
