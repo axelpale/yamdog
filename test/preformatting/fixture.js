@@ -1,4 +1,4 @@
-// testdog.test
+// @testdog.test
 //
 // Test various aspects of yamdog with this
 // test fixture.
