@@ -36,6 +36,13 @@
 //
 //
 
+// @@testdog.double
+somecode
+somecode
+// @@testdog.trouble
+//
+// Double trouble
+
 /** @@testdog.jsdocblock
  * Support JSDoc block comment syntax.
  */

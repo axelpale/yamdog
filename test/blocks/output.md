@@ -34,3 +34,12 @@ Allow empty lines at the beginning.
 ## [testdog](#testdog).[longtail](#testdoglongtail)
 
 Allow multiple empty lines at the end.
+
+<a name="testdogdouble"></a>
+## [testdog](#testdog).[double](#testdogdouble)
+
+
+<a name="testdogtrouble"></a>
+## [testdog](#testdog).[trouble](#testdogtrouble)
+
+Double trouble
