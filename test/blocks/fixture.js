@@ -1,15 +1,15 @@
-// testdog
+// @testdog
 //
 // Test how yamdog recognizes comment blocks with
 // this test fixture.
 //
 
-// testdog.basic
+// @testdog.basic
 //
 // A basic comment block.
 //
 
-// testdog.dense
+// @testdog.dense
 // A dense comment block syntax.
 
 // A comment block without the earmark
@@ -17,22 +17,22 @@
 //
 
 //
-// testdog.delayed
+// @testdog.delayed
 //
 // Allow empty lines at the beginning.
 
-// testdog.longtail
+// @testdog.longtail
 //
 // Allow multiple empty lines at the end.
 //
 //
 //
 
-/** testdog.jsdocblock
+/** @testdog.jsdocblock
  * Support JSDoc block comment syntax.
  */
 
 /**
- * testdog.jsdocblock
+ * @testdog.jsdocblock
  * Support JSDoc block comment syntax with an empty line at the beginning.
  */
