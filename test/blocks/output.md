@@ -23,7 +23,7 @@ A dense comment block syntax.
 <a name="testdogspace"></a>
 ## [testdog](#testdog).[space](#testdogspace)
 
-A space after the earmark.
+Allow a space after the earmark.
 
 <a name="testdogdelayed"></a>
 ## [testdog](#testdog).[delayed](#testdogdelayed)
