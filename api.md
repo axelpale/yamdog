@@ -35,7 +35,6 @@ built-in decorator functions.
 
 <p style="margin-bottom: 0"><strong>Parameters:</strong></p>
 
-
 - *blocks*
   - array of parsed blocks
 - *decorators*
@@ -43,7 +42,6 @@ built-in decorator functions.
 
 
 <p style="margin-bottom: 0"><strong>Returns:</strong></p>
-
 
 - array of new decorated block objects
 
@@ -111,7 +109,6 @@ Creates a decorator function that appends paragraphs for aliases.
 
 <p style="margin-bottom: 0"><strong>Parameters:</strong></p>
 
-
 - *opts*
   - optional object with props:
     - *aliasesLabel*
@@ -121,7 +118,6 @@ Creates a decorator function that appends paragraphs for aliases.
 
 
 <p style="margin-bottom: 0"><strong>Returns:</strong></p>
-
 
 - a function, a decorator function.
 
@@ -135,7 +131,6 @@ Sort blocks in alphabetical order.
 
 <p style="margin-bottom: 0"><strong>Parameters:</strong></p>
 
-
 - *opts*
   - optional object with properties:
     - *locales*
@@ -148,7 +143,6 @@ Sort blocks in alphabetical order.
 
 
 <p style="margin-bottom: 0"><strong>Returns:</strong></p>
-
 
 - a function, a decorator function.
 
@@ -164,7 +158,6 @@ links also at every 10th block or so.
 
 <p style="margin-bottom: 0"><strong>Parameters:</strong></p>
 
-
 - *opts*
   - optional object with props:
     - *label*
@@ -172,7 +165,6 @@ links also at every 10th block or so.
 
 
 <p style="margin-bottom: 0"><strong>Returns:</strong></p>
-
 
 - a function, a decorator function.
 
@@ -186,13 +178,11 @@ Bolds the given keywords with Markdown &ast;&ast;bold&ast;&ast; syntax.
 
 <p style="margin-bottom: 0"><strong>Parameters:</strong></p>
 
-
 - *keywords*
   - array of strings or regexp objects
 
 
 <p style="margin-bottom: 0"><strong>Returns:</strong></p>
-
 
 - a function, a decorator function.
 
@@ -206,7 +196,6 @@ Bolds the first line of all lists with
 Markdown &ast;&ast;bold&ast;&ast; syntax.
 
 <p style="margin-bottom: 0"><strong>Returns:</strong></p>
-
 
 - a function, a decorator function.
 
@@ -225,7 +214,6 @@ would not. See [yamdog.decorators.replaceListValues](#yamdogdecoratorsreplacelis
 
 <p style="margin-bottom: 0"><strong>Returns:</strong></p>
 
-
 - a function, a decorator function.
 
 
@@ -241,7 +229,6 @@ Skips preformatted text sections.
 
 <p style="margin-bottom: 0"><strong>Parameters:</strong></p>
 
-
 - *keywordToUrl*
   - an object where keys are keywords and values are URLs.
 
@@ -255,7 +242,6 @@ linkKeywords({
 ```
 
 <p style="margin-bottom: 0"><strong>Returns:</strong></p>
-
 
 - a function, a decorator function.
 
@@ -272,7 +258,6 @@ Skips preformatted text.
 
 <p style="margin-bottom: 0"><strong>Returns:</strong></p>
 
-
 - a function, a decorator function.
 
 
@@ -287,13 +272,11 @@ Skips preformatted text sections, block names, and block signatures.
 
 <p style="margin-bottom: 0"><strong>Parameters:</strong></p>
 
-
 - *rules*
   - array of replacement rule objects { pattern, replacement }
 
 
 <p style="margin-bottom: 0"><strong>Returns:</strong></p>
-
 
 - a function, a decorator function.
 
@@ -308,7 +291,6 @@ Uses applies [String.prototype.replace](https://developer.mozilla.org/en-US/docs
 
 <p style="margin-bottom: 0"><strong>Parameters:</strong></p>
 
-
 - *config*
   - object with properties:
     - *rules*
@@ -320,7 +302,6 @@ Uses applies [String.prototype.replace](https://developer.mozilla.org/en-US/docs
 
 
 <p style="margin-bottom: 0"><strong>Returns:</strong></p>
-
 
 - a function, a decorator function.
 
@@ -335,7 +316,6 @@ with a paragraph that contains a link to the source code.
 
 <p style="margin-bottom: 0"><strong>Parameters:</strong></p>
 
-
 - *config*
   - object with props:
     - *basePath*
@@ -347,7 +327,6 @@ with a paragraph that contains a link to the source code.
 
 
 <p style="margin-bottom: 0"><strong>Returns:</strong></p>
-
 
 - a function, a decorator function.
 
@@ -374,7 +353,6 @@ the missing separator. Allowed separator characters are `- .:#/`.
 
 <p style="margin-bottom: 0"><strong>Parameters:</strong></p>
 
-
 - *config*
   - optional object with properties:
     - *title*
@@ -385,7 +363,6 @@ the missing separator. Allowed separator characters are `- .:#/`.
 
 
 <p style="margin-bottom: 0"><strong>Returns:</strong></p>
-
 
 - a function, a decorator function.
 
@@ -400,7 +377,6 @@ Internally uses [yamdog.parse](#yamdogparse), [yamdog.decorate](#yamdogdecorate)
 in this order.
 
 <p style="margin-bottom: 0"><strong>Parameters:</strong></p>
-
 
 - *config*
   - object with properties
@@ -432,7 +408,6 @@ Parse doc block objects from code.
 
 <p style="margin-bottom: 0"><strong>Parameters:</strong></p>
 
-
 - *mod*
   - *earmark*
     - a string, the earmark prefix, for example `@`. Comment blocks that begin with this prefix will be included.
@@ -445,12 +420,10 @@ Parse doc block objects from code.
 
 <p style="margin-bottom: 0"><strong>Returns:</strong></p>
 
-
 - an array of doc block objects.
 
 
 <p style="margin-bottom: 0">A parsed doc block object has properties:</p>
-
 
 - *file*
   - string, the absolute file path that contains the block.
@@ -495,7 +468,6 @@ Render API docs in Markdown.
 
 <p style="margin-bottom: 0"><strong>Parameters:</strong></p>
 
-
 - *blocks*
   - parsed blocks
 - *options*
@@ -506,7 +478,6 @@ Render API docs in Markdown.
 
 
 <p style="margin-bottom: 0"><strong>Returns:</strong></p>
-
 
 - string, in Markdown syntax.
 
