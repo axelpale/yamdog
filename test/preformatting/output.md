@@ -30,3 +30,15 @@ A code example
 
 Also, linkNames should not decorate preformatted names `testdog.test`
 like normally [testdog.test](#testdogtest).
+
+<a name="testdogindent"></a>
+## [testdog](#testdog).[indent](#testdogindent)
+
+Some code:
+
+```
+const name = value
+name = name.trim()
+```
+
+Text after.
