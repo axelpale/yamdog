@@ -115,7 +115,7 @@ A block can have *multiple names*. This way you can document aliases for feature
     // This block has two names. The first one is the primary one.
     some = code
 
-To make the names stand out in your code, you can use alternative earmarks, for example `### `. The choice is purely optional and have no effect in the docs output.
+To make the names stand out in your code, you can use alternative earmarks, for example `###`. The choice is purely optional and have no effect in the docs output.
 
     // ### doghouse.toys.fetch
     // This block has a prefixed name
@@ -175,7 +175,7 @@ To integrate yamdog to your coding project, create a file `docs/generate.js` or 
       // Where to generate
       output: path.resolve(__dirname, 'API.md'),
       // Earmark; include comment blocks that begin with this string
-      earmark: 'doghouse',
+      earmark: '@',
       // Main title of the document
       title: 'Doghouse API Documentation',
       // Introduction; the initial paragraph
