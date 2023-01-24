@@ -1,6 +1,6 @@
 {
   "name": "yamdog",
-  "version": "2.0.0-alpha",
+  "version": "2.0.0",
   "description": "Yet another markdown API documentation generator. Scrapes comments in code for Markdown and YAML syntax.",
   "keywords": [
     "api",
