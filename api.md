@@ -1,7 +1,7 @@
 <a name="top"></a>
 # Yamdog API Docs
 
-Welcome to Yamdog v1.6.0 API documentation. This document is generated with Yamdog itself, of course. See [docs/generate.js](https://github.com/axelpale/yamdog/blob/main/docs/generate.js) for the recipe.
+Welcome to Yamdog v2.0.0 API documentation. This document is generated with Yamdog itself, of course. See [docs/generate.js](https://github.com/axelpale/yamdog/blob/main/docs/generate.js) for the recipe.
 
 ![Two bones](docs/yamdog_two_bones.png)
 
@@ -35,7 +35,6 @@ built-in decorator functions.
 
 <p style="margin-bottom: 0"><strong>Parameters:</strong></p>
 
-
 - *blocks*
   - array of parsed blocks
 - *decorators*
@@ -43,7 +42,6 @@ built-in decorator functions.
 
 
 <p style="margin-bottom: 0"><strong>Returns:</strong></p>
-
 
 - array of new decorated block objects
 
@@ -111,7 +109,6 @@ Creates a decorator function that appends paragraphs for aliases.
 
 <p style="margin-bottom: 0"><strong>Parameters:</strong></p>
 
-
 - *opts*
   - optional object with props:
     - *aliasesLabel*
@@ -121,7 +118,6 @@ Creates a decorator function that appends paragraphs for aliases.
 
 
 <p style="margin-bottom: 0"><strong>Returns:</strong></p>
-
 
 - a function, a decorator function.
 
@@ -135,7 +131,6 @@ Sort blocks in alphabetical order.
 
 <p style="margin-bottom: 0"><strong>Parameters:</strong></p>
 
-
 - *opts*
   - optional object with properties:
     - *locales*
@@ -148,7 +143,6 @@ Sort blocks in alphabetical order.
 
 
 <p style="margin-bottom: 0"><strong>Returns:</strong></p>
-
 
 - a function, a decorator function.
 
@@ -164,7 +158,6 @@ links also at every 10th block or so.
 
 <p style="margin-bottom: 0"><strong>Parameters:</strong></p>
 
-
 - *opts*
   - optional object with props:
     - *label*
@@ -172,7 +165,6 @@ links also at every 10th block or so.
 
 
 <p style="margin-bottom: 0"><strong>Returns:</strong></p>
-
 
 - a function, a decorator function.
 
@@ -186,13 +178,11 @@ Bolds the given keywords with Markdown &ast;&ast;bold&ast;&ast; syntax.
 
 <p style="margin-bottom: 0"><strong>Parameters:</strong></p>
 
-
 - *keywords*
   - array of strings or regexp objects
 
 
 <p style="margin-bottom: 0"><strong>Returns:</strong></p>
-
 
 - a function, a decorator function.
 
@@ -206,7 +196,6 @@ Bolds the first line of all lists with
 Markdown &ast;&ast;bold&ast;&ast; syntax.
 
 <p style="margin-bottom: 0"><strong>Returns:</strong></p>
-
 
 - a function, a decorator function.
 
@@ -225,7 +214,6 @@ would not. See [yamdog.decorators.replaceListValues](#yamdogdecoratorsreplacelis
 
 <p style="margin-bottom: 0"><strong>Returns:</strong></p>
 
-
 - a function, a decorator function.
 
 
@@ -241,7 +229,6 @@ Skips preformatted text sections.
 
 <p style="margin-bottom: 0"><strong>Parameters:</strong></p>
 
-
 - *keywordToUrl*
   - an object where keys are keywords and values are URLs.
 
@@ -255,7 +242,6 @@ linkKeywords({
 ```
 
 <p style="margin-bottom: 0"><strong>Returns:</strong></p>
-
 
 - a function, a decorator function.
 
@@ -272,7 +258,6 @@ Skips preformatted text.
 
 <p style="margin-bottom: 0"><strong>Returns:</strong></p>
 
-
 - a function, a decorator function.
 
 
@@ -287,13 +272,11 @@ Skips preformatted text sections, block names, and block signatures.
 
 <p style="margin-bottom: 0"><strong>Parameters:</strong></p>
 
-
 - *rules*
   - array of replacement rule objects { pattern, replacement }
 
 
 <p style="margin-bottom: 0"><strong>Returns:</strong></p>
-
 
 - a function, a decorator function.
 
@@ -308,7 +291,6 @@ Uses applies [String.prototype.replace](https://developer.mozilla.org/en-US/docs
 
 <p style="margin-bottom: 0"><strong>Parameters:</strong></p>
 
-
 - *config*
   - object with properties:
     - *rules*
@@ -320,7 +302,6 @@ Uses applies [String.prototype.replace](https://developer.mozilla.org/en-US/docs
 
 
 <p style="margin-bottom: 0"><strong>Returns:</strong></p>
-
 
 - a function, a decorator function.
 
@@ -335,7 +316,6 @@ with a paragraph that contains a link to the source code.
 
 <p style="margin-bottom: 0"><strong>Parameters:</strong></p>
 
-
 - *config*
   - object with props:
     - *basePath*
@@ -347,7 +327,6 @@ with a paragraph that contains a link to the source code.
 
 
 <p style="margin-bottom: 0"><strong>Returns:</strong></p>
-
 
 - a function, a decorator function.
 
@@ -374,7 +353,6 @@ the missing separator. Allowed separator characters are `- .:#/`.
 
 <p style="margin-bottom: 0"><strong>Parameters:</strong></p>
 
-
 - *config*
   - optional object with properties:
     - *title*
@@ -385,7 +363,6 @@ the missing separator. Allowed separator characters are `- .:#/`.
 
 
 <p style="margin-bottom: 0"><strong>Returns:</strong></p>
-
 
 - a function, a decorator function.
 
@@ -401,7 +378,6 @@ in this order.
 
 <p style="margin-bottom: 0"><strong>Parameters:</strong></p>
 
-
 - *config*
   - object with properties
     - *entry*
@@ -409,9 +385,10 @@ in this order.
     - *output*
       - string, an absolute path to the target file to generate. For example '/home/xeli/projects/yamdog/API.md'.
     - *earmark*
-      - string, the earmark signature to look for in the comment blocks to include to the documentation. The earmark is usually the module name like `mylib`. It does not need to match the real package name but it must match the signature used in the comments.
-      - OR an array of strings, for multiple alternative earmarks.
-      - OR an object of strings, for multiple alternative earmarks with their full names. This becomes handy if you feel it tedious to write the full sequence of namespaces in your signatures like `foo.bar.baz.biz()` instead of `baz.biz()`. By setting earmark { baz: 'foo.bar.baz', ... } you still ensure that `baz.biz()` is treated and positioned in the doc as the full name would.
+      - optional string, default is `@`. The earmark prefix to look for in the beginning of comment blocks. The matching blocks will be included to the docs. The rest of the line becomes the name of the doc block. The earmark is usually a character like `#` or `@` but can be longer.
+    - *names*
+      - optional array of string. Specifies a filter to include only the doc blocks with the name that begins with one of the names in the array.
+      - optional object of strings. Specifies a filter and a mapping from allowed names to their full names. This becomes handy if you feel it tedious to write long sequences of namespaces in your names like `foo.bar.baz.biz()` instead of `baz.biz()`. By setting names { baz: 'foo.bar.baz', ... } you still ensure that `baz.biz()` is treated and positioned in the doc as the full name would.
     - *title*
       - optional string, the document title and main heading. Default is `'API Documentation'`.
     - *intro*
@@ -431,24 +408,22 @@ Parse doc block objects from code.
 
 <p style="margin-bottom: 0"><strong>Parameters:</strong></p>
 
-
 - *mod*
   - *earmark*
-    - a string, the earmark signature, for example the module name. Comment blocks that begin with this signature will be included.
-    - OR an array of strings, to specify multiple valid earmarks.
-    - OR an object of strings, to specify multiple valid earmarks as keys and their extended full names as values.
+    - a string, the earmark prefix, for example `@`. Comment blocks that begin with this prefix will be included.
+  - *names*
+    - an array of strings, to specify valid names. The comment block that has a name that begins with one of the names in the array, will be included.
+    - an object of strings, to specify multiple valid names as keys and their extended full names as values.
   - *path*
     - string, absolute directory or file path to the module
 
 
 <p style="margin-bottom: 0"><strong>Returns:</strong></p>
 
-
 - an array of doc block objects.
 
 
 <p style="margin-bottom: 0">A parsed doc block object has properties:</p>
-
 
 - *file*
   - string, the absolute file path that contains the block.
@@ -493,7 +468,6 @@ Render API docs in Markdown.
 
 <p style="margin-bottom: 0"><strong>Parameters:</strong></p>
 
-
 - *blocks*
   - parsed blocks
 - *options*
@@ -504,7 +478,6 @@ Render API docs in Markdown.
 
 
 <p style="margin-bottom: 0"><strong>Returns:</strong></p>
-
 
 - string, in Markdown syntax.
 

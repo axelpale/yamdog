@@ -1,9 +1,9 @@
-// testdog
+// @testdog
 //
 // Test how yamdog decorates keywords with this test fixture.
 //
 
-// testdog.test
+// @testdog.test
 //
 // A child block of testdog. Custom keyword: doghouse
 //
@@ -11,13 +11,13 @@
 // be redecorated.
 //
 
-// testdog.test.doghouse
+// @testdog.test.doghouse
 //
 // A block with same name as the custom keyword.
 // The decorator should prevent duplicate markup.
 //
 
-// testdog.test.links
+// @testdog.test.links
 //
 // Ensure normal links to names work as expected.
 //   testdog.test

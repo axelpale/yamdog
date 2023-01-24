@@ -1,9 +1,9 @@
-// testdog
+// @testdog
 //
 // Test how yamdog generates tocs with this fixture.
 //
 
-// testdog.test
+// @testdog.test
 //
 // A child block of testdog.
 //
@@ -11,27 +11,27 @@
 // - should not be merged
 // - to the toc list
 
-// testdog.test.doghouse
+// @testdog.test.doghouse
 //
 // A block for doghouses.
 //
 
-// testdog.test.puppy
+// @testdog.test.puppy
 //
 // A block for puppies.
 //
 
-// testdog.test.doggo
+// @testdog.test.doggo
 //
 // A block for doggos.
 //
 
-// testdog.test.DOGGO
+// @testdog.test.DOGGO
 //
 // A block with upper case name.
 // Should be ordered before lower case names in toc when
 // alphabetical decorator is used.
 //
 
-// testdog.test.Doggo
+// @testdog.test.Doggo
 // A block with CamelCase name.

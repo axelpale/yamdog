@@ -5,8 +5,11 @@ const path = require('path')
 
 yamdog.generate({
   entry: path.resolve(__dirname, 'fixture.js'),
-  output: path.resolve(__dirname, '..', 'output.md'),
-  earmark: 'testdog',
+  output: path.resolve(__dirname, 'output.md'),
+  earmark: '@@', // test custom earmark
   title: 'Test document title',
-  intro: 'Test document intro.'
+  intro: 'Test document intro.',
+  decorators: [
+    yamdog.decorators.aliases()
+  ]
 })

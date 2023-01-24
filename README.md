@@ -25,7 +25,7 @@ Via [npm](https://www.npmjs.com/package/yamdog) or [yarn](https://yarnpkg.com/en
 Here is a function documented in Yamdog syntax:
 
     exports.myfun = (foo, options) => {
-      // mylib.myfun(foo, [options])
+      // @mylib.myfun(foo, [options])
       //
       // My function with some general documentation at
       // the beginning.
@@ -100,9 +100,9 @@ A *comment block* is a set of adjacent lines of `//` comments.
     // that has some text
     some = code
 
-To *earmark* a comment block to be included in your docs, begin the block with an earmark string, for example the name of your package. The earmark and the rest of the line define the *name* of the block and usually present how to access or call the documented feature. For example, let our earmark be `doghouse`:
+To *earmark* a comment block to be included in your docs, begin the block with an earmark string, being `@` by default. The rest of the line define the *name* of the block and may present how to access or call the documented feature. For example, the name of this block is `doghouse.toys.fetch` and the call signature `(toyname)`:
 
-    // doghouse.toys.fetch(toyname)
+    // @doghouse.toys.fetch(toyname)
     // This comment block will be included
     // to the docs with a name "doghouse.toys.fetch"
     // and with a heading "doghouse.toys.fetch(toyname)".
@@ -110,33 +110,33 @@ To *earmark* a comment block to be included in your docs, begin the block with a
 
 A block can have *multiple names*. This way you can document aliases for features. Use [aliases decorator](https://axelpale.github.io/yamdog/api#yamdogdecoratorsaliases) to list these alternative names in the docs output.
 
-    // doghouse.toys.fetch
-    // doghouse.toys.get
+    // @doghouse.toys.fetch
+    // @doghouse.toys.get
     // This block has two names. The first one is the primary one.
     some = code
 
-To make the names stand out in your code, you can prefix them with hash `#` or at-sign `@`. This is purely optional and have no effect in the docs output.
+To make the names stand out in your code, you can use alternative earmarks, for example `###`. The choice is purely optional and have no effect in the docs output.
 
-    // @doghouse.toys.fetch
+    // ### doghouse.toys.fetch
     // This block has a prefixed name
     // that is easy to spot in the code.
 
 To skip a line in a block, use triple slash `///`.
 
-    // doghouse.toys.fetch
+    // @doghouse.toys.fetch
     // This line of text is visible in docs.
     /// This line of text is not in docs.
     some = code
 
 To skip the whole block, use triple slash on the earmark line.
 
-    /// doghouse.toys.legacy
+    /// @doghouse.toys.legacy
     // This block will not be present in the docs.
     some = code
 
 Indent with space `' '` or dash `'-'` to create lists. You can use any indentation size you like, for example four spaces instead of two.
 
-    // doghouse.walkTo(x, y)
+    // @doghouse.walkTo(x, y)
     //
     // Parameters
     //   x
@@ -149,7 +149,7 @@ Indent with space `' '` or dash `'-'` to create lists. You can use any indentati
 
 To write multi-line list items, prefix each new line with a double or triple dot `..`. Otherwise the new line becomes a new list item.
 
-    // doghouse.foods
+    // @doghouse.foods
     //
     // list title
     //   first list item
@@ -165,9 +165,7 @@ To write multi-line list items, prefix each new line with a double or triple dot
 
 ## Usage
 
-Here we cover the basic usage. See [yamdog API docs](https://axelpale.github.io/yamdog/api) for details, generated with yamdog itself, of course.
-
-In your project, create a file `docs/generate.js` with contents similar to:
+To integrate yamdog to your coding project, create a file `docs/generate.js` or similar. The file is the generator program for your document and a way for you to configure the structure and content.
 
     const yamdog = require('yamdog')
     const path = require('path')
@@ -177,7 +175,7 @@ In your project, create a file `docs/generate.js` with contents similar to:
       // Where to generate
       output: path.resolve(__dirname, 'API.md'),
       // Earmark; include comment blocks that begin with this string
-      earmark: 'doghouse',
+      earmark: '@',
       // Main title of the document
       title: 'Doghouse API Documentation',
       // Introduction; the initial paragraph
@@ -189,11 +187,17 @@ In your project, create a file `docs/generate.js` with contents similar to:
       ]
     })
 
-Then you can run it with Node and find your freshly baked docs at `docs/API.md`.
+After creating the generator, run it with Node. It will scrape your code and output a document.
 
     $ node docs/generate.js
 
-Integrate to your `$ npm run` workflow with the script to your package.json:
+Depending on your `output` path, you can now find the freshly baked docs at `docs/API.md`.
+
+    $ cat docs/API.md
+    # Doghouse API Documentation
+    ...
+
+Integrate the docs generation into your `$ npm run` workflow by adding the following script to your package.json. To integrate with Gulp, Grunt, Webpack etc. use the [JS API](https://axelpale.github.io/yamdog/api).
 
     scripts: {
       ...
@@ -203,7 +207,7 @@ Integrate to your `$ npm run` workflow with the script to your package.json:
 
 Naturally you can choose any directory and file names you like. Some prefer `docs/`, others `doc/`, and some even the project root. Suit to your purpose.
 
-See [API documentation](https://axelpale.github.io/yamdog/api) for details.
+See [API documentation](https://axelpale.github.io/yamdog/api) for details, generated with yamdog itself, of course.
 
 
 ## Contribute

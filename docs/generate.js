@@ -8,7 +8,8 @@ const decor = yamdog.decorators
 yamdog.generate({
   entry: path.resolve(__dirname, '../index.js'),
   output: path.resolve(__dirname, '..', 'api.md'),
-  earmark: {
+  earmark: '@',
+  names: {
     yamdog: 'yamdog',
     decorators: 'yamdog.decorators'
   },

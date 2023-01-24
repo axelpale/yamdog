@@ -1,6 +1,6 @@
 {
   "name": "yamdog",
-  "version": "1.6.0",
+  "version": "2.0.0",
   "description": "Yet another markdown API documentation generator. Scrapes comments in code for Markdown and YAML syntax.",
   "keywords": [
     "api",
@@ -29,10 +29,11 @@
     "standard": "^16.0.4"
   },
   "scripts": {
-    "audit": "npm audit --production",
+    "audit": "npm audit --omit=dev",
     "build:docs": "node docs/generate.js",
     "lint": "standard 'lib/**/*.js' && echo 'OK'",
     "test": "npm run lint",
+    "test:generate": "node test/generate.js",
     "release": "npm run test && npm run build:docs && npm publish"
   },
   "dependencies": {
