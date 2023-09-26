@@ -13,6 +13,16 @@
 // A child block of testdog.
 //
 
+// @testdog.remarks
+//
+// This block should go last.
+//
+
+// @testdog.introduction
+//
+// This block should go first.
+//
+
 // @testdog.test2.odd
 //
 // A block with blockless middle name.

@@ -7,6 +7,10 @@ yamdog.generate({
   title: 'Test document title',
   intro: 'Testing alphabetical sorting of the blocks.',
   decorators: [
-    yamdog.decorators.alphabetical({ groupCase: true })
+    yamdog.decorators.alphabetical({
+      intro: ['testdog.introduction'],
+      outro: 'testdog.remarks',
+      groupCase: true
+    })
   ]
 })
