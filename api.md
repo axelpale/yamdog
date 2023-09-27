@@ -54,6 +54,9 @@ Source: [decorate/index.js](https://github.com/axelpale/yamdog/blob/main/lib/dec
 The default docs output is a bit dull.
 
 With decorators you can style the document in various ways.
+Below you can find many prebuilt decorators, for example
+to emphasize matching keywords, insert tables of contents,
+and order the documentation blocks in alphabetical order.
 See [custom decorators](#yamdogdecoratorsaboutcustomdecorators) for more info on
 how decorator functions work and how to create your own decorators.
 
@@ -133,6 +136,10 @@ Sort blocks in alphabetical order.
 
 - *opts*
   - optional object with properties:
+    - *intro*
+      - optional string or array of strings. Comment blocks that have these names are placed first regardless of their alphabetical position.
+    - *outro*
+      - optional string or array of strings. Comment blocks that have these names are placed last regardless of their alphabetical position.
     - *locales*
       - optional string or array that defines the locale for the order.
       - The available values are documented in [Intl.Collator]( https://developer.mozilla.org/en-US/docs/Web/JavaScript/ Reference/Global_Objects/Intl/Collator).
@@ -488,8 +495,6 @@ Source: [render/index.js](https://github.com/axelpale/yamdog/blob/main/lib/rende
 ## [yamdog](#yamdog).[stringify](#yamdogstringify)(mod)
 
 Alias of [yamdog.parse](#yamdogparse)
-
-Source: [parse/index.js](https://github.com/axelpale/yamdog/blob/main/lib/parse/index.js)
 
 <p style="text-align: right">
 <a href="#top">&uarr; Back To Top</a>
