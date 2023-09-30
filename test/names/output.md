@@ -48,3 +48,10 @@ the name.
 This shortname should be mapped to full name.
 
 Also, linkNames decorator should link: [test.shortname](#testdogtestshortname)
+
+<a name="externaltest"></a>
+## [external](#external).[test](#externaltest)
+
+This shortname should be mapped to its full name.
+
+Also, linkNames decorator should link: [external.test](#externaltest) and [tester](#externaltest)
