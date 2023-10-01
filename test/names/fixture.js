@@ -45,3 +45,10 @@
 //
 // Also, linkNames decorator should link: test.shortname
 //
+
+// @tester
+//
+// This shortname should be mapped to its full name.
+//
+// Also, linkNames decorator should link: external.test and tester
+//

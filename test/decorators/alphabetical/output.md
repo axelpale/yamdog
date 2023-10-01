@@ -4,6 +4,11 @@
 Testing alphabetical sorting of the blocks.
 
 
+<a name="testdogintroduction"></a>
+## [testdog](#testdog).[introduction](#testdogintroduction)
+
+This block should go first.
+
 <a name="testdog"></a>
 ## [testdog](#testdog)
 
@@ -48,3 +53,8 @@ A child block.
 ## [testdog](#testdog).[test2](#testdogtest2).[odd](#testdogtest2odd)
 
 A block with blockless middle name.
+
+<a name="testdogremarks"></a>
+## [testdog](#testdog).[remarks](#testdogremarks)
+
+This block should go last.

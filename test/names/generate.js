@@ -8,7 +8,8 @@ yamdog.generate({
   output: path.resolve(__dirname, 'output.md'),
   names: {
     'testdog': 'testdog',
-    'test': 'testdog.test'
+    'test': 'testdog.test',
+    'tester': 'external.test'
   },
   title: 'Yamdog Test Docs',
   intro: 'Test document output',
