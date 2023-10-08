@@ -10,7 +10,7 @@ Welcome to Yamdog v2.1.0 API documentation. This document is generated with Yamd
 ## [yamdog](#yamdog)
 
 The module provides following tools for parsing, decorating, and rendering
-YAML and Markdown flavoured API documentation from source code comments.
+[YAML](https://yaml.org/) and [Markdown](https://daringfireball.net/projects/markdown/) flavoured API documentation from source code comments.
 
 
 <p style="margin-bottom: 0"><strong>Contents:</strong></p>
@@ -51,9 +51,9 @@ Source: [decorate/index.js](https://github.com/axelpale/yamdog/blob/main/lib/dec
 <a name="yamdogdecorators"></a>
 ## [yamdog](#yamdog).[decorators](#yamdogdecorators)
 
-The default docs output is a bit dull.
+The default [yamdog](#yamdog) output is very minimal and dull.
 
-With decorators you can style the document in various ways.
+With decorators you can enhance the document in various ways.
 Below you can find many prebuilt decorators, for example
 to emphasize matching keywords, insert tables of contents,
 and order the documentation blocks in alphabetical order.
@@ -108,16 +108,18 @@ Source: [decorators/index.js](https://github.com/axelpale/yamdog/blob/main/lib/d
 <a name="yamdogdecoratorsaliases"></a>
 ## [yamdog](#yamdog).[decorators](#yamdogdecorators).[aliases](#yamdogdecoratorsaliases)(opts)
 
-Creates a decorator function that appends paragraphs for aliases.
+Creates a decorator function that appends a paragraph in each
+multi-name block. The paragraph consists of a label
+followed by a list of alternative names.
 
 <p style="margin-bottom: 0"><strong>Parameters:</strong></p>
 
 - *opts*
-  - optional object with props:
+  - optional object with properties:
     - *aliasesLabel*
-      - optional string, default 'Aliases: '. The label to use in the primary output block. The label is followed by a list of alias links.
+      - optional string, default is `'Aliases: '`. This label is used in the paragraph within the block of the primary name. The label is followed by a list of links to aliases.
     - *aliasOfLabel*
-      - optional string, default 'Alias of '. The label to use in the alias blocks. The label is followed by a link to the primary.
+      - optional string, default is `'Alias of '`. This label is used the paragraph within the blocks of the aliases. The label is followed by a link to the primary name.
 
 
 <p style="margin-bottom: 0"><strong>Returns:</strong></p>
@@ -137,15 +139,16 @@ Sort blocks in alphabetical order.
 - *opts*
   - optional object with properties:
     - *intro*
-      - optional string or array of strings. Comment blocks that have these names are placed first regardless of their alphabetical position.
+      - optional string or array of strings. Blocks that have these names are placed first regardless of their alphabetical position.
     - *outro*
-      - optional string or array of strings. Comment blocks that have these names are placed last regardless of their alphabetical position.
+      - optional string or array of strings. Blocks that have these names are placed last regardless of their alphabetical position.
     - *locales*
       - optional string or array that defines the locale for the order.
       - The available values are documented in [Intl.Collator]( https://developer.mozilla.org/en-US/docs/Web/JavaScript/ Reference/Global_Objects/Intl/Collator).
       - Default is `undefined` which selects the local default locale.
     - *groupCase*
-      - optional boolean. Set true to group block names in the order: UPPER, Camel, and lower. In other words, upper case names like constants come first, then names with the first letter capitalized, like class names, and finally the names in lower case, such as methods and properties.
+      - optional boolean.
+      - Set `true` to group block names in the order: UPPER, Camel, and lower. In other words, upper case names like constants come first, then names with the first letter capitalized, like class names, and finally the names in lower case, such as methods and properties.
       - Default is `false`. Note that the default might flip in the next major release.
 
 
@@ -160,15 +163,13 @@ Source: [alphabetical.js](https://github.com/axelpale/yamdog/blob/main/lib/decor
 ## [yamdog](#yamdog).[decorators](#yamdogdecorators).[backTopLinks](#yamdogdecoratorsbacktoplinks)(opts)
 
 Extends the last block with a link back to the top of the page.
-In future versions this decorator might be upgraded to add back
-links also at every 10th block or so.
 
 <p style="margin-bottom: 0"><strong>Parameters:</strong></p>
 
 - *opts*
-  - optional object with props:
+  - optional object with properties:
     - *label*
-      - optional string. Default '&uarr; Back To Top'
+      - optional string. Default is `'&uarr; Back To Top'`
 
 
 <p style="margin-bottom: 0"><strong>Returns:</strong></p>
@@ -181,12 +182,12 @@ Source: [backTopLinks.js](https://github.com/axelpale/yamdog/blob/main/lib/decor
 <a name="yamdogdecoratorsboldkeywords"></a>
 ## [yamdog](#yamdog).[decorators](#yamdogdecorators).[boldKeywords](#yamdogdecoratorsboldkeywords)(keywords)
 
-Bolds the given keywords with Markdown &ast;&ast;bold&ast;&ast; syntax.
+Bolds the given keywords with [Markdown](https://daringfireball.net/projects/markdown/) double asterisk syntax.
 
 <p style="margin-bottom: 0"><strong>Parameters:</strong></p>
 
 - *keywords*
-  - array of strings or regexp objects
+  - array of strings or RegExp objects
 
 
 <p style="margin-bottom: 0"><strong>Returns:</strong></p>
@@ -200,7 +201,7 @@ Source: [boldKeywords.js](https://github.com/axelpale/yamdog/blob/main/lib/decor
 ## [yamdog](#yamdog).[decorators](#yamdogdecorators).[boldListTitles](#yamdogdecoratorsboldlisttitles)()
 
 Bolds the first line of all lists with
-Markdown &ast;&ast;bold&ast;&ast; syntax.
+[Markdown](https://daringfireball.net/projects/markdown/) double asterisk syntax.
 
 <p style="margin-bottom: 0"><strong>Returns:</strong></p>
 
@@ -212,10 +213,10 @@ Source: [boldListTitles.js](https://github.com/axelpale/yamdog/blob/main/lib/dec
 <a name="yamdogdecoratorsitalicsingles"></a>
 ## [yamdog](#yamdog).[decorators](#yamdogdecorators).[italicSingles](#yamdogdecoratorsitalicsingles)()
 
-Emphasizes list item values that contain only a single word.
+This decorator emphasizes list items that contain only a single word.
 This can be used to make parameter names and property names stand out.
 
-For example the list values "foobar", "fooBar", and "foo_bar"
+For example the list items "foobar", "fooBar", and "foo_bar"
 would be emphasized but the values "foo bar", "foo.bar", and "foo:"
 would not. See [yamdog.decorators.replaceListValues](#yamdogdecoratorsreplacelistvalues) for customization.
 
@@ -232,7 +233,7 @@ Source: [italicSingles.js](https://github.com/axelpale/yamdog/blob/main/lib/deco
 Create links for keyword occurrences in text.
 Searches block contents for the given keywords names
 and replaces each keyword match with a link to the matching URL.
-Skips preformatted text sections.
+The decorator skips occurrences in preformatted text sections.
 
 <p style="margin-bottom: 0"><strong>Parameters:</strong></p>
 
@@ -260,8 +261,8 @@ Source: [linkKeywords.js](https://github.com/axelpale/yamdog/blob/main/lib/decor
 
 Easy way to create internal links for block name occurrences in text.
 Searches block contents for block names and replaces each match with
-a link to the block heading anchor.
-Skips preformatted text.
+a link to the block with matching name.
+This decorator skips occurrences in preformatted text sections.
 
 <p style="margin-bottom: 0"><strong>Returns:</strong></p>
 
@@ -275,12 +276,17 @@ Source: [linkNames.js](https://github.com/axelpale/yamdog/blob/main/lib/decorato
 
 Replaces the given patterns in text and lists
 by using [String.prototype.replace](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace).
-Skips preformatted text sections, block names, and block signatures.
+This decorator skips matches in preformatted text sections and
+block names.
 
 <p style="margin-bottom: 0"><strong>Parameters:</strong></p>
 
 - *rules*
-  - array of replacement rule objects { pattern, replacement }
+  - array of replacement rule objects `{ pattern, replacement }` where
+    - *pattern*
+      - a string or RegExp object
+    - *replacement*
+      - a string
 
 
 <p style="margin-bottom: 0"><strong>Returns:</strong></p>
@@ -294,18 +300,18 @@ Source: [replace.js](https://github.com/axelpale/yamdog/blob/main/lib/decorators
 ## [yamdog](#yamdog).[decorators](#yamdogdecorators).[replaceListValues](#yamdogdecoratorsreplacelistvalues)(config)
 
 Replaces all list values according to given rules.
-Uses applies [String.prototype.replace](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace)() for each list value.
+Applies [String.prototype.replace](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace)() for each list value.
 
 <p style="margin-bottom: 0"><strong>Parameters:</strong></p>
 
 - *config*
   - object with properties:
     - *rules*
-      - array of replacement rule objects { pattern, replacement }
+      - array of replacement rule objects `{ pattern, replacement }`
     - *minDepth*
-      - optional integer. Default 0. Value of 1 means the root list item is skipped.
+      - optional integer. Default is `0`. Value of `1` means the root list item is skipped.
     - *maxDepth*
-      - optional integer. Default Infinity. Value of 1 means that list items at depth 2 and beyond are skipped.
+      - optional integer. Default is `Infinity`. Value of `1` means that list items at depth 2 and beyond are skipped.
 
 
 <p style="margin-bottom: 0"><strong>Returns:</strong></p>
@@ -318,19 +324,25 @@ Source: [replaceListValues.js](https://github.com/axelpale/yamdog/blob/main/lib/
 <a name="yamdogdecoratorssourcelinks"></a>
 ## [yamdog](#yamdog).[decorators](#yamdogdecorators).[sourceLinks](#yamdogdecoratorssourcelinks)(config)
 
-Creates a decorator function that extends each block
-with a paragraph that contains a link to the source code.
+This decorator extends each block
+with a paragraph that contains a link to the source code file.
+
+Yamdog is aware of the absolute file paths of blocks.
+In order to convert these paths to URLs, you need to specify
+what part of the file path needs to be replaced with a URL prefix.
 
 <p style="margin-bottom: 0"><strong>Parameters:</strong></p>
 
 - *config*
-  - object with props:
+  - object with properties:
     - *basePath*
-      - string, the dir path to trim away from abs file paths.
+      - a string. The part in absolute file paths to replace with base URL.
+      - For example `'/home/johndoe/myproject'`
     - *baseUrl*
-      - string, the URL to prefix the paths.
+      - a string. The prefix to add in place of the base path.
+      - For example `'https://www.example.org/docs'`
     - *label*
-      - optional string, default 'Source: '.
+      - optional string. Default is `'Source: '`.
 
 
 <p style="margin-bottom: 0"><strong>Returns:</strong></p>
@@ -351,11 +363,12 @@ Source: [sourceLinks.js](https://github.com/axelpale/yamdog/blob/main/lib/decora
 <a name="yamdogdecoratorstoc"></a>
 ## [yamdog](#yamdog).[decorators](#yamdogdecorators).[toc](#yamdogdecoratorstoc)(config)
 
-Create and insert table of contents for each module that has child blocks.
+Create and insert a table of contents (ToC) for each block
+that has child blocks.
 The parent-child relationships are determined by the block names.
-For example the block "yamdog.decorators" is a child of block "yamdog",
-and the block "yamdog.decorators.toc" is a child of "yamdog.decorators".
-However, "yamdogbone" would **not** be a child of "yamdog" because of
+For example the block `yamdog.decorators` is a child of block `yamdog`,
+and the block `yamdog.decorators.toc` is a child of `yamdog.decorators`.
+However, `yamdogbone` would **not** be a child of `yamdog` because of
 the missing separator. Allowed separator characters are `- .:#/`.
 
 <p style="margin-bottom: 0"><strong>Parameters:</strong></p>
@@ -364,9 +377,9 @@ the missing separator. Allowed separator characters are `- .:#/`.
   - optional object with properties:
     - *title*
       - optional string, the line before the ToC list.
-      - Default is the empty string '', meaning that ToC lists have no title.
+      - Default is the empty string `''`, meaning that ToC lists have no title.
     - *depth*
-      - optional integer, the depth per table. Default 1.
+      - optional integer, the depth per table. Default is `1`.
 
 
 <p style="margin-bottom: 0"><strong>Returns:</strong></p>
@@ -379,22 +392,22 @@ Source: [toc.js](https://github.com/axelpale/yamdog/blob/main/lib/decorators/toc
 <a name="yamdoggenerate"></a>
 ## [yamdog](#yamdog).[generate](#yamdoggenerate)(config)
 
-Generate the API documentation and save as Markdown document.
+Generate the API documentation and save as [Markdown](https://daringfireball.net/projects/markdown/) document.
 Internally uses [yamdog.parse](#yamdogparse), [yamdog.decorate](#yamdogdecorate), and [yamdog.render](#yamdogrender),
 in this order.
 
 <p style="margin-bottom: 0"><strong>Parameters:</strong></p>
 
 - *config*
-  - object with properties
+  - an object with properties
     - *entry*
       - string, an absolute directory or file path. The location of the module to be documented. All relative require and import statements like `var lib = require('./lib')` are followed in the order they occur in the code. Absolute or named imports like `var _ = require('lodash')` and `import baz from 'foo/bar'` are skipped.
     - *output*
-      - string, an absolute path to the target file to generate. For example '/home/xeli/projects/yamdog/API.md'.
+      - a string, an absolute path to the target file to generate. For example `'/home/xeli/projects/yamdog/API.md'`.
     - *earmark*
-      - optional string, default is `@`. The earmark prefix to look for in the beginning of comment blocks. The matching blocks will be included to the docs. The rest of the line becomes the name of the doc block. The earmark is usually a character like `#` or `@` but can be longer.
+      - optional string, default is `'@'`. The earmark prefix to look for in the beginning of comment blocks. The matching blocks will be included to the docs. The rest of the line becomes the name of the doc block. The earmark is usually a character like `#` or `@` but can be longer.
     - *names*
-      - optional array of string. Specifies a filter to include only the doc blocks with the name that begins with one of the names in the array.
+      - optional array of string. Specifies a filter to include only the blocks with a name that begins with one of the names in the array.
       - optional object of strings. Specifies a filter and a mapping from allowed names to their full names. This becomes handy if you feel it tedious to write long sequences of namespaces in your names like `foo.bar.baz.biz()` instead of `baz.biz()`. By setting names { baz: 'foo.bar.baz', ... } you still ensure that `baz.biz()` is treated and positioned in the doc as the full name would.
     - *title*
       - optional string, the document title and main heading. Default is `'API Documentation'`.
@@ -422,7 +435,7 @@ Parse doc block objects from code.
     - an array of strings, to specify valid names. The comment block that has a name that begins with one of the names in the array, will be included.
     - an object of strings, to specify multiple valid names as keys and their extended full names as values.
   - *path*
-    - string, absolute directory or file path to the module
+    - a string, an absolute directory or file path to the module
 
 
 <p style="margin-bottom: 0"><strong>Returns:</strong></p>
@@ -433,23 +446,23 @@ Parse doc block objects from code.
 <p style="margin-bottom: 0">A parsed doc block object has properties:</p>
 
 - *file*
-  - string, the absolute file path that contains the block.
+  - a string, the absolute file path that contains the block.
 - *signature*
-  - string, the call signature e.g. 'mylib.myfun(param)'. The signature is equivalent to shortName + postfix. Signatures are especially used in headings.
+  - a string, the call signature e.g. `'mylib.myfun(param)'`. The signature is equivalent to shortName + postfix. Signatures are especially used in headings.
 - *name*
-  - string, the unit name derived from the call signature. e.g. 'mylib.myfun'
+  - a string, the unit name derived from the call signature. For example `'mylib.myfun'`
 - *postfix*
-  - string, the remainder of the signature after the name. e.g. '(param)'
+  - a string, the remainder of the signature after the name. For example `'(param)'`
 - *nameParts*
   - array of objects with properties:
     - *label*
-      - string, the part single name e.g. 'myfun'
+      - a string, the part single name e.g. `'myfun'`
     - *name*
-      - string, the full name of the part e.g. 'mylib.myfun'
+      - a string, the full name of the part e.g. `'mylib.myfun'`
     - *hash*
-      - string, the nav hash for the part full name e.g. 'mylibmyfun'
+      - a string, the nav hash for the part full name e.g. `'mylibmyfun'`
     - *prefix*
-      - string, the separator character found before the label e.g. '.'
+      - a string, the separator character found before the label. For example `'.'`
 - *shortName*
   - a string, the original name of the block before possible name extensions caused by earmark name mapping.
 - *hash*
@@ -471,7 +484,7 @@ Source: [parse/index.js](https://github.com/axelpale/yamdog/blob/main/lib/parse/
 <a name="yamdogrender"></a>
 ## [yamdog](#yamdog).[render](#yamdogrender)(blocks, options)
 
-Render API docs in Markdown.
+Render the blocks in [Markdown](https://daringfireball.net/projects/markdown/).
 
 <p style="margin-bottom: 0"><strong>Parameters:</strong></p>
 
@@ -479,14 +492,14 @@ Render API docs in Markdown.
   - parsed blocks
 - *options*
   - *title*
-    - optional string, default 'API Reference'.
+    - optional string, default is `'API Reference'`.
   - *intro*
-    - optional string, default ''.
+    - optional string, default is `''`.
 
 
 <p style="margin-bottom: 0"><strong>Returns:</strong></p>
 
-- string, in Markdown syntax.
+- string, in [Markdown](https://daringfireball.net/projects/markdown/) syntax.
 
 
 Source: [render/index.js](https://github.com/axelpale/yamdog/blob/main/lib/render/index.js)
