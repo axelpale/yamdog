@@ -5,7 +5,7 @@
 [![npm version](https://img.shields.io/npm/v/yamdog?color=green)](https://www.npmjs.com/package/yamdog)
 [![license](https://img.shields.io/npm/l/yamdog)](#license)
 
-Yet another documentation generator for JavaScript modules. Generate your interface reference documents, API docs, for your code in a fun way. Yamdog's minimal syntax is based on [Markdown](https://en.wikipedia.org/wiki/Markdown) and [YAML](https://yaml.org/) and keeps your comments readable and your code pretty. Yamdog crawls through your ECMAScript projects structured in [CommonJS](https://www.commonjs.org/) or [ESM](https://nodejs.org/api/esm.html) module format. It follows relative require and import statements and scrapes earmarked comment blocks for plain text, Markdown, and YAML. Then it renders the blocks together, spices them up with tables of contents and other happiness, and finally outputs a Markdown document.
+Yet another documentation generator for JavaScript modules. Generate your interface reference documents, API docs, for your code in a fun way. Yamdog's minimal syntax is based on [Markdown](https://en.wikipedia.org/wiki/Markdown) and [YAML](https://yaml.org/) and keeps your comments readable and your code pretty. Yamdog crawls through your ECMAScript projects structured in [CommonJS](https://www.commonjs.org/) or [ESM](https://nodejs.org/api/esm.html) module format. It follows relative require and import statements and scrapes earmarked comment *blocks* for plain text, Markdown, and YAML. Then it renders the blocks together, spices them up with tables of contents and other happiness, and finally outputs a Markdown document.
 
 [Install](#install) - [Syntax](#syntax) - [Usage](#usage) - [API Docs](https://axelpale.github.io/yamdog/api) - [Contribute](#contribute) - [GitHub](https://github.com/axelpale/yamdog)
 
@@ -165,7 +165,7 @@ To write multi-line list items, prefix each new line with a double or triple dot
 
 ## Usage
 
-To integrate yamdog to your coding project, create a file `docs/generate.js` or similar. The file is the generator program for your document and a way for you to configure the structure and content.
+To integrate yamdog to your code project, create a file `docs/generate.js` or similar. The file acts as the generator program for your code documentation and provides a way for you to configure the structure and content of the document.
 
     const yamdog = require('yamdog')
     const path = require('path')

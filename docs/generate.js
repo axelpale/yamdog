@@ -51,7 +51,9 @@ yamdog.generate({
     decor.linkKeywords({
       'String.prototype.replace':
         'https://developer.mozilla.org/en-US/docs/Web/' +
-        'JavaScript/Reference/Global_Objects/String/replace'
+        'JavaScript/Reference/Global_Objects/String/replace',
+      'Markdown': 'https://daringfireball.net/projects/markdown/',
+      'YAML': 'https://yaml.org/'
     }),
     // Render table of contents to blocks
     decor.toc({
